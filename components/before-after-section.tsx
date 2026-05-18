@@ -3,6 +3,7 @@
 import { useState } from "react";
 import {
   ImageComparison,
+  ImageComparisonCenterLabel,
   ImageComparisonImage,
   ImageComparisonSlider,
 } from "@/components/ui/image-comparison";
@@ -10,38 +11,43 @@ import { cn } from "@/lib/utils";
 
 const categories = [
   {
-    id: "injectables",
-    label: "Injectables",
-    beforeAlt: "Before injectables treatment (placeholder)",
-    afterAlt: "After injectables treatment (placeholder)",
-  },
-  {
     id: "skin",
     label: "Skin",
-    beforeAlt: "Before skin treatment (placeholder)",
-    afterAlt: "After skin treatment (placeholder)",
+    beforeSrc: "/skin-before.jpg",
+    afterSrc: "/skin-after.jpg",
+    beforeAlt: "Before skin treatment",
+    afterAlt: "After skin treatment",
+  },
+  {
+    id: "injectables",
+    label: "Injectables",
+    beforeSrc: "/injectables-before.jpg",
+    afterSrc: "/injectables-after.jpg",
+    beforeAlt: "Before injectables treatment",
+    afterAlt: "After injectables treatment",
   },
   {
     id: "laser",
     label: "Laser",
-    beforeAlt: "Before laser treatment (placeholder)",
-    afterAlt: "After laser treatment (placeholder)",
+    beforeSrc: "/laser-before.jpg",
+    afterSrc: "/laser-after.jpg",
+    beforeAlt: "Before laser treatment",
+    afterAlt: "After laser treatment",
   },
   {
-    id: "body",
-    label: "Body",
-    beforeAlt: "Before body treatment (placeholder)",
-    afterAlt: "After body treatment (placeholder)",
+    id: "lips",
+    label: "Lips",
+    beforeSrc: "/lips-before.jpg",
+    afterSrc: "/lips-after.jpg",
+    beforeAlt: "Before lip filler",
+    afterAlt: "After lip filler",
   },
 ] as const;
 
 type CategoryId = (typeof categories)[number]["id"];
 
-const PLACEHOLDER_BEFORE = "/ba-before.jpg";
-const PLACEHOLDER_AFTER = "/ba-after.jpg";
-
 export function BeforeAfterSection() {
-  const [activeId, setActiveId] = useState<CategoryId>("injectables");
+  const [activeId, setActiveId] = useState<CategoryId>("skin");
   const active = categories.find((c) => c.id === activeId) ?? categories[0];
 
   return (
@@ -58,6 +64,9 @@ export function BeforeAfterSection() {
             <h2 id="before-after-heading" className="mt-4 font-display text-3xl font-semibold text-black lg:text-[2.125rem]">
               Real-looking results by treatment area
             </h2>
+            <p className="mt-4 max-w-2xl text-[13px] leading-relaxed text-zinc-500 md:text-sm">
+              Results vary by patient. Individual treatment plans are recommended after consultation.
+            </p>
           </header>
 
           <div
@@ -89,34 +98,32 @@ export function BeforeAfterSection() {
             })}
           </div>
 
-          <div className="rounded-[5px] border border-zinc-200 bg-zinc-50 p-2 sm:p-3 lg:p-4">
-            <div
-              id="before-after-panel"
-              role="tabpanel"
-              aria-labelledby={`before-after-tab-${active.id}`}
-            >
+          <div
+            id="before-after-panel"
+            role="tabpanel"
+            aria-labelledby={`before-after-tab-${active.id}`}
+          >
               <ImageComparison
                 key={active.id}
-                className="aspect-[4/3] w-full rounded-[5px] border border-zinc-200 sm:aspect-video lg:aspect-[2.1/1]"
+                className="aspect-[4/3] w-full sm:aspect-video lg:aspect-[2.1/1]"
                 enableHover
               >
                 <ImageComparisonImage
-                  src={PLACEHOLDER_BEFORE}
-                  className="grayscale"
-                  alt={active.beforeAlt}
+                  src={active.afterSrc}
+                  alt={active.afterAlt}
                   position="left"
                 />
                 <ImageComparisonImage
-                  src={PLACEHOLDER_AFTER}
-                  alt={active.afterAlt}
+                  src={active.beforeSrc}
+                  alt={active.beforeAlt}
                   position="right"
                 />
-                <ImageComparisonSlider className="w-0.5 bg-white/30 backdrop-blur-sm">
+                <ImageComparisonSlider className="z-20 w-0.5 bg-white/30 backdrop-blur-sm">
                   <div className="absolute top-1/2 left-1/2 size-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white shadow-sm" />
                 </ImageComparisonSlider>
+                <ImageComparisonCenterLabel />
               </ImageComparison>
             </div>
-          </div>
         </div>
       </div>
     </section>

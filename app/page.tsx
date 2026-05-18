@@ -200,6 +200,32 @@ export default function Home() {
       </section>
 
       <BeforeAfterSection />
+
+      <section
+        className="border-t border-zinc-200 bg-white"
+        aria-labelledby="consultation-cta-heading"
+      >
+        <div className="mx-auto max-w-6xl px-6 py-14 text-center lg:px-12 lg:py-16">
+          <div className="mx-auto max-w-xl">
+            <h2
+              id="consultation-cta-heading"
+              className="font-display text-3xl font-semibold tracking-tight text-black lg:text-[2rem]"
+            >
+              Not sure where to start?
+            </h2>
+            <p className="mx-auto mt-6 max-w-md leading-relaxed text-zinc-600">
+              Our consultation process helps identify the best treatment options for your skin,
+              features, goals, and timeline.
+            </p>
+            <Link
+              href="/contact"
+              className="mt-10 inline-flex rounded-[5px] bg-black px-8 py-3 text-sm font-medium tracking-wide text-white transition-colors hover:bg-zinc-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            >
+              Book your consultation
+            </Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

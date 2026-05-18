@@ -39,9 +39,9 @@ function ImageComparison({
   springOptions,
 }: ImageComparisonProps) {
   const [isDragging, setIsDragging] = useState(false);
-  const motionValue = useMotionValue(50);
+  const motionValue = useMotionValue(75);
   const motionSliderPosition = useSpring(motionValue, springOptions ?? DEFAULT_SPRING_OPTIONS);
-  const [sliderPosition, setSliderPosition] = useState(50);
+  const [sliderPosition, setSliderPosition] = useState(75);
 
   const handleDrag = (event: React.MouseEvent | React.TouchEvent) => {
     if (!isDragging && !enableHover) return;
@@ -136,4 +136,35 @@ const ImageComparisonSlider = ({
   );
 };
 
-export { ImageComparison, ImageComparisonImage, ImageComparisonSlider };
+function ImageComparisonCenterLabel({
+  beforeLabel = "Before",
+  afterLabel = "After",
+  className,
+}: {
+  beforeLabel?: string;
+  afterLabel?: string;
+  className?: string;
+}) {
+  const ctx = useContext(ImageComparisonContext);
+  if (!ctx) throw new Error("ImageComparisonCenterLabel must be used within ImageComparison");
+  const { sliderPosition } = ctx;
+
+  // Inverted versus raw slider share: flipped mapping for which word matches the dominant view.
+  const label = sliderPosition >= 50 ? beforeLabel : afterLabel;
+
+  return (
+    <div
+      aria-live="polite"
+      className={cn(
+        "pointer-events-none absolute inset-x-0 bottom-0 z-10 flex justify-center px-4 pb-3 sm:pb-4",
+        className,
+      )}
+    >
+      <span className="text-[11px] font-semibold uppercase tracking-[0.28em] text-white transition-opacity duration-200 drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">
+        {label}
+      </span>
+    </div>
+  );
+}
+
+export { ImageComparison, ImageComparisonImage, ImageComparisonSlider, ImageComparisonCenterLabel };
