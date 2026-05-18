@@ -10,17 +10,83 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-playfair);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background-color: #ffffff;
 }
 
 body {
-  background: var(--background);
+  background-color: #ffffff;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes trust-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.trust-marquee-mask {
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 6%,
+    #000 94%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 6%,
+    #000 94%,
+    transparent
+  );
+}
+
+.trust-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: trust-marquee 42s linear infinite;
+}
+
+/* One ul duplicates items — gap applies between last item and repeated first item. */
+
+.trust-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trust-marquee-mask {
+    mask-image: none;
+    -webkit-mask-image: none;
+    overflow: visible;
+  }
+
+  .trust-marquee-track {
+    animation: none;
+    width: 100%;
+    max-width: 72rem;
+    margin-inline: auto;
+  }
+
+  .trust-marquee-strip {
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%;
+    width: 100%;
+    row-gap: 0.75rem;
+    column-gap: 2rem;
+  }
+
+  /* Second copy begins at index 6 (5 trust points × 2 in JSX). Adjust if trustPoints length changes. */
+  .trust-marquee-strip li:nth-child(n + 6) {
+    display: none;
+  }
 }
