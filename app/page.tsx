@@ -2,6 +2,8 @@ import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { BeforeAfterSection } from "@/components/before-after-section";
+import { MedicalTrustSection } from "@/components/medical-trust-section";
+import { PackagesSection } from "@/components/packages-section";
 import { concernDefinitions } from "@/lib/concerns";
 
 const trustPoints = [
@@ -226,6 +228,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <MedicalTrustSection />
+
+      <PackagesSection />
     </>
   );
 }
