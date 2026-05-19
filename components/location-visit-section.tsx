@@ -25,7 +25,7 @@ export function LocationVisitSection() {
       />
       <div className="mx-auto max-w-6xl px-6 py-14 lg:px-12 lg:py-16">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:items-start lg:gap-x-14">
-          <div className="min-w-0">
+          <div className="min-w-0 max-w-md">
             <header>
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-zinc-500">
                 Location / Visit
@@ -34,7 +34,9 @@ export function LocationVisitSection() {
                 id="visit-location-heading"
                 className="mt-4 font-display text-3xl font-semibold text-black lg:text-[2rem]"
               >
-                Visit our Coral Springs med spa
+                Visit our Coral Springs
+                <br />
+                med spa
               </h2>
 
               <p className="mt-6 leading-relaxed text-zinc-600">
