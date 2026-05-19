@@ -139,7 +139,7 @@ function MegaMenuPanel() {
 
 /** Hover target for Services — stays inside the header `<nav>`. */
 export function ServicesMegaTrigger() {
-  const { open, openMenu, scheduleClose } = useMegaMenuContext();
+  const { open, openMenu, scheduleClose, closeMenu } = useMegaMenuContext();
 
   return (
     <div
@@ -149,6 +149,7 @@ export function ServicesMegaTrigger() {
     >
       <Link
         href="/services"
+        onClick={closeMenu}
         className={`${navLinkClass} inline-flex items-center gap-1`}
         aria-expanded={open}
         aria-haspopup="true"
