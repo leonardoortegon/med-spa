@@ -2,8 +2,11 @@ import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { BeforeAfterSection } from "@/components/before-after-section";
+import { FinalCtaSection } from "@/components/final-cta-section";
+import { LocationVisitSection } from "@/components/location-visit-section";
 import { MedicalTrustSection } from "@/components/medical-trust-section";
 import { PackagesSection } from "@/components/packages-section";
+import { ReviewsSection } from "@/components/reviews-section";
 import { concernDefinitions } from "@/lib/concerns";
 
 const trustPoints = [
@@ -232,6 +235,12 @@ export default function Home() {
       <MedicalTrustSection />
 
       <PackagesSection />
+
+      <ReviewsSection />
+
+      <LocationVisitSection />
+
+      <FinalCtaSection />
     </>
   );
 }
