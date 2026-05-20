@@ -1,3 +1,7 @@
+import {
+  getBookableServiceId,
+  getBookingModeForService,
+} from "@/lib/booking/service-cta";
 import type {
   BookableService,
   BookingConcern,
@@ -6,6 +10,12 @@ import type {
   ServiceCategoryOption,
   TimePeriod,
 } from "@/lib/booking/types";
+import {
+  categoryTitles,
+  getLinksForCategory,
+  parseServicePath,
+  serviceCategories as siteServiceCategories,
+} from "@/lib/services-navigation";
 
 export const BOOKING_PROGRESS_LABELS = [
   "Goal",
@@ -77,109 +87,54 @@ export const consultationTypes: ConsultationType[] = [
 ];
 
 export const serviceCategories: ServiceCategoryOption[] = [
-  { id: "injectables", title: "Injectables" },
-  { id: "skin-treatments", title: "Skin Treatments" },
-  { id: "laser-light", title: "Laser & Light" },
-  { id: "body-contouring", title: "Body Contouring" },
-  { id: "hair-restoration", title: "Hair Restoration" },
-  { id: "wellness", title: "Wellness" },
+  ...siteServiceCategories.map((id) => ({
+    id,
+    title: categoryTitles[id],
+  })),
   { id: "consultations", title: "Consultations" },
 ];
 
-export const bookableServices: BookableService[] = [
-  { id: "hydrafacial", categoryId: "skin-treatments", label: "HydraFacial", durationMinutes: 60, bookingMode: "direct" },
-  { id: "dermaplaning", categoryId: "skin-treatments", label: "Dermaplaning", durationMinutes: 45, bookingMode: "direct" },
-  { id: "chemical-peels", categoryId: "skin-treatments", label: "Chemical Peel", durationMinutes: 45, bookingMode: "direct" },
-  { id: "medical-facial", categoryId: "skin-treatments", label: "Medical Facial", durationMinutes: 60, bookingMode: "direct" },
-  {
-    id: "laser-hair-removal",
-    categoryId: "laser-light",
-    label: "Laser Hair Removal",
-    durationMinutes: 30,
-    bookingMode: "consultation",
-    consultationId: "laser",
-  },
-  { id: "iv-therapy", categoryId: "wellness", label: "IV Therapy", durationMinutes: 60, bookingMode: "direct" },
-  { id: "vitamin-shot", categoryId: "wellness", label: "Vitamin Shot", durationMinutes: 15, bookingMode: "direct" },
-  { id: "b12-injection", categoryId: "wellness", label: "B12 Injection", durationMinutes: 15, bookingMode: "direct" },
-  {
-    id: "botox",
-    categoryId: "injectables",
-    label: "Follow-up Botox",
-    durationMinutes: 20,
-    bookingMode: "direct",
-  },
-  {
-    id: "lip-filler",
-    categoryId: "injectables",
-    label: "Follow-up Filler",
-    durationMinutes: 30,
-    bookingMode: "direct",
-  },
-  {
-    id: "botox-first",
-    categoryId: "injectables",
-    label: "First-time Botox",
-    durationMinutes: 30,
-    bookingMode: "consultation",
-    consultationId: "injectables",
-  },
-  {
-    id: "lip-filler-new",
-    categoryId: "injectables",
-    label: "Lip Filler (new patients)",
-    durationMinutes: 30,
-    bookingMode: "consultation",
-    consultationId: "injectables",
-  },
-  {
-    id: "facial-balancing",
-    categoryId: "injectables",
-    label: "Facial Balancing",
-    durationMinutes: 45,
-    bookingMode: "consultation",
-    consultationId: "injectables",
-  },
-  {
-    id: "co2-laser",
-    categoryId: "laser-light",
-    label: "CO2 Laser",
-    durationMinutes: 60,
-    bookingMode: "consultation",
-    consultationId: "laser",
-  },
-  {
-    id: "fractional-laser",
-    categoryId: "laser-light",
-    label: "Fractional Laser",
-    durationMinutes: 45,
-    bookingMode: "consultation",
-    consultationId: "laser",
-  },
-  {
-    id: "melasma-treatment",
-    categoryId: "laser-light",
-    label: "Melasma Treatment",
-    durationMinutes: 30,
-    bookingMode: "consultation",
-    consultationId: "skin",
-  },
-  {
-    id: "medical-weight-loss",
-    categoryId: "wellness",
-    label: "Medical Weight Loss",
-    durationMinutes: 45,
-    bookingMode: "consultation",
-    consultationId: "weight-loss",
-  },
-  {
+function buildBookableServices(): BookableService[] {
+  const services: BookableService[] = [];
+  const seenIds = new Set<string>();
+
+  for (const category of siteServiceCategories) {
+    for (const link of getLinksForCategory(category)) {
+      const parsed = parseServicePath(link.href);
+      if (!parsed) continue;
+
+      const id = getBookableServiceId(parsed.category, parsed.service);
+      if (seenIds.has(id)) continue;
+      seenIds.add(id);
+
+      const { bookingMode, consultationId } = getBookingModeForService(
+        parsed.category,
+        parsed.service,
+      );
+
+      services.push({
+        id,
+        categoryId: parsed.category,
+        label: link.label,
+        durationMinutes: 45,
+        bookingMode,
+        consultationId,
+      });
+    }
+  }
+
+  services.push({
     id: "membership-treatment",
     categoryId: "consultations",
     label: "Membership Treatment",
     durationMinutes: 60,
     bookingMode: "direct",
-  },
-];
+  });
+
+  return services.sort((a, b) => a.label.localeCompare(b.label));
+}
+
+export const bookableServices: BookableService[] = buildBookableServices();
 
 export const bookingConcerns: BookingConcern[] = [
   {
@@ -187,7 +142,7 @@ export const bookingConcerns: BookingConcern[] = [
     title: "Fine Lines & Wrinkles",
     recommendations: [
       { type: "consultation", id: "injectables", label: "Injectables Consultation" },
-      { type: "service", id: "botox-first", label: "Botox & Wrinkle Relaxers", note: "Consultation required for first visit" },
+      { type: "service", id: "botox", label: "Botox & Wrinkle Relaxers", note: "Consultation required for first visit" },
       { type: "service", id: "hydrafacial", label: "Microneedling / skin refresh", note: "Book skin consultation for advanced options" },
     ],
   },
@@ -196,7 +151,7 @@ export const bookingConcerns: BookingConcern[] = [
     title: "Lips",
     recommendations: [
       { type: "consultation", id: "injectables", label: "Injectables Consultation" },
-      { type: "service", id: "lip-filler-new", label: "Lip Filler", note: "New patients start with a consultation" },
+      { type: "service", id: "lip-filler", label: "Lip Filler", note: "New patients start with a consultation" },
     ],
   },
   {
@@ -213,7 +168,7 @@ export const bookingConcerns: BookingConcern[] = [
     recommendations: [
       { type: "consultation", id: "skin", label: "Skin Consultation" },
       { type: "service", id: "chemical-peels", label: "Chemical Peels" },
-      { type: "service", id: "medical-facial", label: "Medical Facial" },
+      { type: "service", id: "medical-facials", label: "Medical Facials" },
     ],
   },
   {
@@ -255,7 +210,12 @@ export const bookingConcerns: BookingConcern[] = [
     title: "Hair Thinning",
     recommendations: [
       { type: "consultation", id: "hair-restoration", label: "Hair Restoration Consultation" },
-      { type: "service", id: "medical-facial", label: "PRP / growth treatments", note: "Consultation recommended first" },
+      {
+        type: "service",
+        id: "prp-hair-restoration",
+        label: "PRP Hair Restoration",
+        note: "Consultation recommended first",
+      },
     ],
   },
   {

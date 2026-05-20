@@ -35,7 +35,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} h-full bg-white antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-white pb-20 lg:pb-0">
+      <body className="flex min-h-full flex-col bg-white">
         <BookingShell>
           <SiteHeader />
           <main className="flex-1 bg-white">{children}</main>

@@ -200,7 +200,7 @@ export function BookingModal() {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-end justify-center sm:items-center sm:p-4">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
       <button
         type="button"
         className="absolute inset-0 bg-black/40"
@@ -211,7 +211,7 @@ export function BookingModal() {
         role="dialog"
         aria-modal="true"
         aria-labelledby="booking-dialog-title"
-        className="relative flex max-h-[92dvh] w-full max-w-2xl flex-col overflow-hidden rounded-t-[8px] border border-zinc-200 bg-white shadow-[0_24px_80px_-24px_rgba(0,0,0,0.35)] sm:max-h-[88dvh] sm:rounded-[5px]"
+        className="relative flex max-h-[min(88dvh,100%)] w-full max-w-2xl flex-col overflow-hidden rounded-[5px] border border-zinc-200 bg-white shadow-[0_24px_80px_-24px_rgba(0,0,0,0.35)]"
       >
         <div className="flex items-center justify-between border-b border-zinc-100 px-5 py-4 sm:px-6">
           <div>
@@ -284,7 +284,7 @@ export function BookingModal() {
                   <CardOption
                     key={c.id}
                     title={c.title}
-                    description={`${c.description} · ~${c.durationMinutes} min`}
+                    description={c.description}
                     selected={consultationId === c.id}
                     onClick={() => setConsultationId(c.id)}
                   />
@@ -355,8 +355,8 @@ export function BookingModal() {
                     title={s.label}
                     description={
                       s.bookingMode === "consultation"
-                        ? `Consultation recommended · ~${s.durationMinutes} min`
-                        : `Direct booking · ~${s.durationMinutes} min`
+                        ? "Consultation recommended"
+                        : "Direct booking"
                     }
                     selected={serviceId === s.id}
                     onClick={() => {
@@ -381,7 +381,7 @@ export function BookingModal() {
                   <CardOption
                     key={c.id}
                     title={c.title}
-                    description={`${c.description} · ~${c.durationMinutes} min`}
+                    description={c.description}
                     selected={consultationId === c.id}
                     onClick={() => {
                       setConsultationId(c.id);

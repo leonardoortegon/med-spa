@@ -2,7 +2,7 @@ import type { BookingOpenOptions } from "@/lib/booking/types";
 import { getServiceLinkLabel } from "@/lib/services-navigation";
 import { resolveServicePage } from "@/lib/service-pages";
 
-const CONSULTATION_FIRST = new Set([
+export const CONSULTATION_FIRST = new Set([
   "injectables/botox",
   "injectables/lip-filler",
   "injectables/cheek-filler",
@@ -21,7 +21,7 @@ const CONSULTATION_FIRST = new Set([
   "skin-treatments/acne-treatment",
 ]);
 
-const CONSULTATION_BY_CATEGORY: Record<string, string> = {
+export const CONSULTATION_BY_CATEGORY: Record<string, string> = {
   injectables: "injectables",
   "skin-treatments": "skin",
   "laser-light": "laser",
@@ -30,7 +30,7 @@ const CONSULTATION_BY_CATEGORY: Record<string, string> = {
   "hair-restoration": "hair-restoration",
 };
 
-const DIRECT_BOOKABLE = new Set([
+export const DIRECT_BOOKABLE = new Set([
   "skin-treatments/hydrafacial",
   "skin-treatments/dermaplaning",
   "skin-treatments/chemical-peels",
@@ -53,7 +53,7 @@ export function getServiceBookingCta(
       openOptions: {
         goal: "known",
         categoryId: category,
-        serviceId: mapBookableServiceId(category, service),
+        serviceId: getBookableServiceId(category, service),
       },
     };
   }
@@ -102,11 +102,31 @@ export function getServiceBookingCta(
   };
 }
 
-function mapBookableServiceId(category: string, service: string): string {
+export function getBookableServiceId(category: string, service: string): string {
   if (service === "vitamin-injection") return "vitamin-shot";
-  if (service === "laser-hair-removal") return "laser-hair-removal";
-  if (service === "hydrafacial") return "hydrafacial";
-  if (service === "botox") return "botox";
-  if (service === "lip-filler") return "lip-filler";
   return service;
+}
+
+export function getBookingModeForService(
+  category: string,
+  service: string,
+): Pick<import("@/lib/booking/types").BookableService, "bookingMode" | "consultationId"> {
+  const path = `${category}/${service}`;
+
+  if (DIRECT_BOOKABLE.has(path)) {
+    return { bookingMode: "direct" };
+  }
+
+  if (service === "medical-weight-loss") {
+    return { bookingMode: "consultation", consultationId: "weight-loss" };
+  }
+
+  if (category === "hair-restoration") {
+    return { bookingMode: "consultation", consultationId: "hair-restoration" };
+  }
+
+  return {
+    bookingMode: "consultation",
+    consultationId: CONSULTATION_BY_CATEGORY[category] ?? "new-patient",
+  };
 }
