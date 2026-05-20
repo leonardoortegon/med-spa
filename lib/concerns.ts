@@ -12,7 +12,7 @@ export const concernDefinitions: ConcernDefinition[] = [
     slug: "fine-lines-wrinkles",
     title: "Fine lines & wrinkles",
     intro:
-      "If expression lines or crepey texture show up where you’d like smoother, fresher skin, options span everything from neuromodulators to resurfacing—chosen once we understand where lines form and how deep they go.",
+      "If expression lines or crepey texture show up where you’d like smoother, fresher skin, options span everything from neuromodulators to resurfacing, chosen once we understand where lines form and how deep they go.",
     recommendations: [
       { label: "Botox & wrinkle relaxers", href: "/services/injectables/botox" },
       { label: "Sculptra collagen stimulation", href: "/services/injectables/sculptra" },
@@ -36,7 +36,7 @@ export const concernDefinitions: ConcernDefinition[] = [
     slug: "sun-damage-pigmentation",
     title: "Sun damage & pigmentation",
     intro:
-      "Uneven tone after UV exposure often combines surface pigment with deeper melasma—treatment plans vary by depth, skin type, and whether you’re looking for single-session brightening versus gradual correction.",
+      "Uneven tone after UV exposure often combines surface pigment with deeper melasma, treatment plans vary by depth, skin type, and whether you’re looking for single-session brightening versus gradual correction.",
     recommendations: [
       { label: "IPL photofacial", href: "/services/laser-light/ipl-photofacial" },
       { label: "Pigmentation treatments", href: "/services/laser-light/pigmentation-treatment" },
@@ -48,7 +48,7 @@ export const concernDefinitions: ConcernDefinition[] = [
     slug: "skin-texture-pores",
     title: "Skin texture & pores",
     intro:
-      "Rough texture and visible pores respond well to a combination of controlled resurfacing and collagen-stimulating modalities—often staggered so skin barrier stays healthy between visits.",
+      "Rough texture and visible pores respond well to a combination of controlled resurfacing and collagen-stimulating modalities, often staggered so skin barrier stays healthy between visits.",
     recommendations: [
       { label: "HydraFacial", href: "/services/skin-treatments/hydrafacial" },
       { label: "Microneedling", href: "/services/skin-treatments/microneedling" },
@@ -60,7 +60,7 @@ export const concernDefinitions: ConcernDefinition[] = [
     slug: "facial-volume-loss",
     title: "Facial volume loss",
     intro:
-      "When cheeks, under-eyes, or lips look hollow or deflated, fillers and biostimulators can restore structure—placement strategy matters as much as product choice for a natural, lifted look.",
+      "When cheeks, under-eyes, or lips look hollow or deflated, fillers and biostimulators can restore structure, placement strategy matters as much as product choice for a natural, lifted look.",
     recommendations: [
       { label: "Lip filler", href: "/services/injectables/lip-filler" },
       { label: "Cheek filler", href: "/services/injectables/cheek-filler" },
@@ -72,7 +72,7 @@ export const concernDefinitions: ConcernDefinition[] = [
     slug: "unwanted-hair",
     title: "Unwanted hair",
     intro:
-      "Laser hair removal targets pigment in actively growing follicles—and usually takes a series spaced to your treatment zone. A consult confirms skin type fit, expectations, and maintenance interval.",
+      "Laser hair removal targets pigment in actively growing follicles, and usually takes a series spaced to your treatment zone. A consult confirms skin type fit, expectations, and maintenance interval.",
     recommendations: [
       { label: "Laser hair removal", href: "/services/laser-light/laser-hair-removal" },
       { label: "Browse all laser & light", href: "/services/laser-light" },
@@ -82,7 +82,7 @@ export const concernDefinitions: ConcernDefinition[] = [
     slug: "body-fat-loose-skin",
     title: "Body fat & loose skin",
     intro:
-      "Goals here might be fat reduction, firmer skin, muscle tone—or a blend. Technologies differ by downtime, area size, and whether the issue is pinchable fat versus laxity.",
+      "Goals here might be fat reduction, firmer skin, muscle tone, or a blend. Technologies differ by downtime, area size, and whether the issue is pinchable fat versus laxity.",
     recommendations: [
       { label: "CoolSculpting", href: "/services/body-contouring/coolsculpting" },
       { label: "Emsculpt Neo", href: "/services/body-contouring/emsculpt-neo" },
@@ -105,7 +105,7 @@ export const concernDefinitions: ConcernDefinition[] = [
     slug: "low-energy-wellness",
     title: "Low energy & wellness",
     intro:
-      "Fatigue, stress load, weight plateaus, and hormone shifts often overlap. Wellness plans here focus on measurable support—hydration, metabolism, hormones, and recovery—aligned with your labs and lifestyle.",
+      "Fatigue, stress load, weight plateaus, and hormone shifts often overlap. Wellness plans here focus on measurable support, hydration, metabolism, hormones, and recovery, aligned with your labs and lifestyle.",
     recommendations: [
       { label: "IV therapy", href: "/services/wellness/iv-therapy" },
       { label: "NAD+ therapy", href: "/services/wellness/nad-therapy" },

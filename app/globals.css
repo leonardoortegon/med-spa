@@ -23,6 +23,45 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+@keyframes mobile-menu-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes mobile-menu-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobile-menu-backdrop-in {
+  animation: mobile-menu-fade-in 220ms ease-out both;
+}
+
+.mobile-menu-panel-in {
+  animation: mobile-menu-panel-in 280ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu-backdrop-in,
+  .mobile-menu-panel-in {
+    animation: mobile-menu-fade-in 1ms ease-out both;
+  }
+
+  .mobile-menu-panel-in {
+    transform: none;
+  }
+}
+
 @keyframes trust-marquee {
   from {
     transform: translateX(0);
@@ -72,7 +111,7 @@ body {
   .trust-marquee-track {
     animation: none;
     width: 100%;
-    max-width: 72rem;
+    max-width: 80rem;
     margin-inline: auto;
   }
 

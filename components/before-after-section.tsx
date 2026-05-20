@@ -7,6 +7,7 @@ import {
   ImageComparisonImage,
   ImageComparisonSlider,
 } from "@/components/ui/image-comparison";
+import { BookConsultationButton } from "@/components/booking/book-consultation-button";
 import { cn } from "@/lib/utils";
 
 const categories = [
@@ -124,6 +125,13 @@ export function BeforeAfterSection() {
                 <ImageComparisonCenterLabel />
               </ImageComparison>
             </div>
+
+          <div className="mt-10 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+            <BookConsultationButton openOptions={{ goal: "help" }} />
+            <p className="text-sm text-zinc-600">
+              Results vary. A consultation helps set realistic expectations for your skin and goals.
+            </p>
+          </div>
         </div>
       </div>
     </section>

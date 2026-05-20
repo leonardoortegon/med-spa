@@ -13,10 +13,10 @@ export const businessLocation = {
   phoneDisplay: "(954) 555-0123",
   phoneTel: "+19545550123",
   parkingNotes:
-    "Complimentary visitor parking in the suite building lot—pull in from Sample Rd and follow signage toward the elevator. Short-term curb spots are permitted on Sample Rd during quick pickups.",
+    "Complimentary visitor parking in the suite building lot, pull in from Sample Rd and follow signage toward the elevator. Short-term curb spots are permitted on Sample Rd during quick pickups.",
   hours: [
-    { label: "Monday – Friday", value: "9:00 a.m. – 6:00 p.m." },
-    { label: "Saturday", value: "9:00 a.m. – 3:00 p.m." },
+    { label: "Monday to Friday", value: "9:00 a.m. to 6:00 p.m." },
+    { label: "Saturday", value: "9:00 a.m. to 3:00 p.m." },
     { label: "Sunday", value: "Closed" },
   ],
 } as const;

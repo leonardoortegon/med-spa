@@ -137,7 +137,7 @@ function MegaMenuPanel() {
   );
 }
 
-/** Hover target for Services — stays inside the header `<nav>`. */
+/** Hover target for Services, stays inside the header `<nav>`. */
 export function ServicesMegaTrigger() {
   const { open, openMenu, scheduleClose, closeMenu } = useMegaMenuContext();
 

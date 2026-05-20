@@ -48,6 +48,8 @@ export default async function ServiceDetailRoute({ params }: Props) {
   return (
     <ServiceDetailPage
       content={resolved.content}
+      category={category}
+      service={service}
       categoryTitle={categoryTitle}
       categoryHref={categoryHref}
       canonicalPath={canonicalPath}

@@ -2,6 +2,8 @@ import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { BeforeAfterSection } from "@/components/before-after-section";
+import { ConsultationCtaBlock } from "@/components/consultation-cta-block";
+import { HomeHeroCta } from "@/components/booking/home-hero-cta";
 import { FinalCtaSection } from "@/components/final-cta-section";
 import { LocationVisitSection } from "@/components/location-visit-section";
 import { MedicalTrustSection } from "@/components/medical-trust-section";
@@ -79,18 +81,17 @@ export default function Home() {
               decoding="async"
             />
           </picture>
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 flex flex-col items-start justify-center gap-5 pr-4 pl-12 md:pl-24 lg:pl-32 md:pr-8">
-            <h1 className="font-display max-w-xl text-left text-xl font-medium leading-snug tracking-wide text-black md:max-w-2xl md:text-3xl">
-              Personalized aesthetic
-              <br />
-              treatment solutions
-            </h1>
-            <button
-              type="button"
-              className="pointer-events-auto rounded-[5px] bg-black/55 px-8 py-3 text-sm font-medium tracking-wide text-white transition-colors hover:bg-black/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/80"
-            >
-              Book now
-            </button>
+          <div className="pointer-events-none absolute inset-0 z-10 flex items-end justify-center pb-6 lg:items-center lg:justify-start lg:pb-0">
+            <div className="mx-auto w-full max-w-7xl px-6 lg:px-12">
+              <div className="flex w-full flex-col items-center gap-5 text-center lg:items-start lg:text-left">
+                <h1 className="font-display text-3xl font-medium leading-snug tracking-wide text-black">
+                  Better Skin,
+                  <br />
+                  Better Confidence
+                </h1>
+                <HomeHeroCta />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -99,7 +100,7 @@ export default function Home() {
         className="border-t border-zinc-200 bg-white"
         aria-label="Why patients choose us"
       >
-        <div className="mx-auto max-w-6xl px-6 py-10 md:py-14 lg:px-12">
+        <div className="mx-auto max-w-7xl px-6 py-10 md:py-14 lg:px-12">
           <div className="trust-marquee-mask" role="presentation">
             <div className="trust-marquee-track">
               <ul className="trust-marquee-strip flex shrink-0 items-center gap-x-10 md:gap-x-14">
@@ -134,7 +135,7 @@ export default function Home() {
         className="border-t border-zinc-200 bg-white"
         aria-label="Treatments by category"
       >
-        <div className="mx-auto max-w-6xl px-6 py-14 lg:px-12 lg:py-16">
+        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
             {categoryCards.map((card) => (
               <article
@@ -175,7 +176,7 @@ export default function Home() {
         className="border-t border-zinc-200 bg-white"
         aria-label="Find the right treatment"
       >
-        <div className="mx-auto max-w-6xl px-6 py-14 lg:px-12 lg:py-16">
+        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
           <div className="max-w-3xl text-left">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-zinc-500">
               Find the right treatment
@@ -206,31 +207,13 @@ export default function Home() {
 
       <BeforeAfterSection />
 
-      <section
-        className="border-t border-zinc-200 bg-white"
-        aria-labelledby="consultation-cta-heading"
-      >
-        <div className="mx-auto max-w-6xl px-6 py-14 text-center lg:px-12 lg:py-16">
-          <div className="mx-auto max-w-xl">
-            <h2
-              id="consultation-cta-heading"
-              className="font-display text-3xl font-semibold tracking-tight text-black lg:text-[2rem]"
-            >
-              Not sure where to start?
-            </h2>
-            <p className="mx-auto mt-6 max-w-md leading-relaxed text-zinc-600">
-              Our consultation process helps identify the best treatment options for your skin,
-              features, goals, and timeline.
-            </p>
-            <Link
-              href="/contact"
-              className="mt-10 inline-flex rounded-[5px] bg-black px-8 py-3 text-sm font-medium tracking-wide text-white transition-colors hover:bg-zinc-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-            >
-              Book your consultation
-            </Link>
-          </div>
-        </div>
-      </section>
+      <ConsultationCtaBlock
+        headingId="consultation-cta-heading"
+        heading="Not sure where to start?"
+        description="Our consultation process helps identify the best treatment options for your skin, features, goals, and timeline."
+        openOptions={{ goal: "help" }}
+        showExplore
+      />
 
       <MedicalTrustSection />
 

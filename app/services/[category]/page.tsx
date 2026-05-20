@@ -46,7 +46,7 @@ export default async function ServiceCategoryPage({ params }: Props) {
         {title}
       </h1>
       <p className="mt-4 leading-relaxed text-zinc-600">
-        Detailed pages for each offering live below—swap in clinical copy when ready.
+        Detailed pages for each offering live below, swap in clinical copy when ready.
       </p>
       <ul className="mt-10 divide-y divide-zinc-200 rounded-[5px] border border-zinc-200">
         {links.map((link) => (

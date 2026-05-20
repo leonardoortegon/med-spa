@@ -6,7 +6,7 @@ import { type ServiceCategory } from "@/lib/services-navigation";
 export const metadata: Metadata = {
   title: "Services | Med Spa",
   description:
-    "Explore aesthetics by category or concern—from injectables and skin treatments to lasers, body contouring, and wellness—in one organized hub.",
+    "Explore aesthetics by category or concern, from injectables and skin treatments to lasers, body contouring, and wellness, in one organized hub.",
 };
 
 const SERVICE_CATEGORY_ORDER: ServiceCategory[] = [
@@ -19,7 +19,7 @@ const SERVICE_CATEGORY_ORDER: ServiceCategory[] = [
 ];
 
 /**
- * Static `/public` JPGs — one per featured treatment.
+ * Static `/public` JPGs, one per featured treatment.
  * Bump `SERVICES_PAGE_IMAGE_REVISION` when you replace artwork so browsers/CDNs fetch the new file.
  */
 const SERVICES_PAGE_IMAGE_REVISION = "3";
@@ -28,7 +28,7 @@ function servicesPageImageSrc(basePath: string) {
   return `${basePath}?v=${SERVICES_PAGE_IMAGE_REVISION}`;
 }
 
-/** Upload one JPG per category under `public/` — see `categoryCardImages` filenames. */
+/** Upload one JPG per category under `public/`, see `categoryCardImages` filenames. */
 const categoryCardImages: Record<ServiceCategory, string> = {
   injectables: "/services-category-injectables.jpg",
   "skin-treatments": "/services-category-skin-treatments.jpg",
@@ -63,28 +63,28 @@ const featuredServices = [
     href: "/services/injectables/botox",
     image: "/services-featured-botox.jpg",
     description:
-      "Neuromodulator injections that soften expression lines—forehead, frown, and crow’s feet—while keeping movement looking natural, not frozen.",
+      "Neuromodulator injections that soften expression lines, forehead, frown, and crow’s feet, while keeping movement looking natural, not frozen.",
   },
   {
     label: "Lip Filler",
     href: "/services/injectables/lip-filler",
     image: "/services-featured-lip-filler.jpg",
     description:
-      "Hyaluronic acid gel shaped to your goals for definition, balance, or subtle volume—planned around lip anatomy and the look you want day to day.",
+      "Hyaluronic acid gel shaped to your goals for definition, balance, or subtle volume, planned around lip anatomy and the look you want day to day.",
   },
   {
     label: "HydraFacial",
     href: "/services/skin-treatments/hydrafacial",
     image: "/services-featured-hydrafacial.jpg",
     description:
-      "Medical-grade cleanse, extract, and hydrate in one visit—great before events or as steady upkeep for clarity, glow, and congested pores.",
+      "Medical-grade cleanse, extract, and hydrate in one visit, great before events or as steady upkeep for clarity, glow, and congested pores.",
   },
   {
     label: "Laser Hair Removal",
     href: "/services/laser-light/laser-hair-removal",
     image: "/services-featured-laser-hair-removal.jpg",
     description:
-      "Targeted light energy reduces actively growing hair over a series of sessions—ideal when you’re tired of shaving irritation or ingrowns.",
+      "Targeted light energy reduces actively growing hair over a series of sessions, ideal when you’re tired of shaving irritation or ingrowns.",
   },
   {
     label: "Microneedling",
@@ -98,7 +98,7 @@ const featuredServices = [
     href: "/services/wellness/medical-weight-loss",
     image: "/services-featured-medical-weight-loss.jpg",
     description:
-      "Provider-guided plans that pair lifestyle coaching with medication options when appropriate—built around labs, safety checks, and sustainable pacing.",
+      "Provider-guided plans that pair lifestyle coaching with medication options when appropriate, built around labs, safety checks, and sustainable pacing.",
   },
 ] as const;
 
@@ -118,7 +118,7 @@ export default function ServicesPage() {
                 </h1>
                 <p className="mt-8 max-w-xl text-[15px] leading-relaxed text-zinc-600 lg:text-base">
                   Choose a clinical category, drill into treatments, or reverse-engineer options from how
-                  you want your skin or profile to evolve—matching concerns to modalities is central to
+                  you want your skin or profile to evolve, matching concerns to modalities is central to
                   every plan we sketch.
                 </p>
               </div>
@@ -178,7 +178,7 @@ export default function ServicesPage() {
             Browse by Concern
           </h2>
           <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-zinc-600">
-            Popular entry points—we map anatomy, timelines, and candidacy onto specific treatments inside
+            Popular entry points, we map anatomy, timelines, and candidacy onto specific treatments inside
             each guide.
           </p>
           <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -250,7 +250,7 @@ export default function ServicesPage() {
               Not sure which treatment is right for you?
             </h2>
             <p className="mx-auto mt-6 max-w-md leading-relaxed text-zinc-600">
-              A focused consult cuts through modality overload—we&apos;ll prioritize what matches your
+              A focused consult cuts through modality overload, we&apos;ll prioritize what matches your
               goals, anatomy, downtime comfort, and budget.
             </p>
             <Link

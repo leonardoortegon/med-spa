@@ -14,7 +14,7 @@ const experienceSteps = [
     id: "consultation",
     label: "Consultation",
     description:
-      "We listen first—balancing your goals with anatomy and skin health—and review candidacy openly so priorities and timing stay realistic.",
+      "We listen first, balancing your goals with anatomy and skin health, and review candidacy openly so priorities and timing stay realistic.",
   },
   {
     id: "treatment-plan",
@@ -94,8 +94,8 @@ export function MedicalTrustSection() {
               <span className="text-zinc-700 lg:text-black">through every appointment</span>
             </h2>
             <p className="mt-8 leading-relaxed text-zinc-600">
-              Decisions reflect sound indications and anatomical judgment. Technique stays individualized—nothing
-              prefab when it comes to dosing, placement, or device settings—and you&apos;re welcome to dig into
+              Decisions reflect sound indications and anatomical judgment. Technique stays individualized, nothing
+              prefab when it comes to dosing, placement, or device settings, and you&apos;re welcome to dig into
               who&apos;s treating you and what recovery realistically looks like. Safety, facial balance, and
               natural-looking refinement stay at the heart of everything we schedule.
             </p>

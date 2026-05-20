@@ -51,7 +51,7 @@ const servicePages: Partial<Record<ServiceCategory, Partial<Record<string, Servi
       metaDescription:
         "Botox in Coral Springs for forehead lines, crow’s feet, and frown lines. Natural-looking neuromodulator treatment with licensed providers. Book a consultation.",
       heroDescription:
-        "Soften expression lines without looking frozen. Our Coral Springs team maps dosing to your anatomy and goals—forehead, eyes, jaw, and beyond—for refreshed movement that still looks like you.",
+        "Soften expression lines without looking frozen. Our Coral Springs team maps dosing to your anatomy and goals, forehead, eyes, jaw, and beyond, for refreshed movement that still looks like you.",
       whatItTreats: [
         "Forehead lines and horizontal creases",
         "Crow’s feet at the outer corners of the eyes",
@@ -63,10 +63,10 @@ const servicePages: Partial<Record<ServiceCategory, Partial<Record<string, Servi
         "Hyperhidrosis (excessive underarm sweating)",
       ],
       howItWorks: [
-        "Botox is a neuromodulator—it temporarily limits nerve signals to targeted muscles so they relax and lines look softer when your face is at rest.",
+        "Botox is a neuromodulator, it temporarily limits nerve signals to targeted muscles so they relax and lines look softer when your face is at rest.",
         "We mark injection points based on how you animate (raise your brows, squint, smile) so placement respects your natural asymmetry.",
-        "Most visits take about 15–20 minutes. You can return to normal activities the same day with a few simple aftercare steps.",
-        "Results are gradual: you’ll notice softening over several days, with peak effect typically around 10–14 days.",
+        "Most visits take about 15 to 20 minutes. You can return to normal activities the same day with a few simple aftercare steps.",
+        "Results are gradual: you’ll notice softening over several days, with peak effect typically around 10 to 14 days.",
       ],
       treatmentAreas: [
         "Forehead",
@@ -83,11 +83,11 @@ const servicePages: Partial<Record<ServiceCategory, Partial<Record<string, Servi
         consultation:
           "We review your medical history, medications, and prior injectables; discuss goals; and agree on a conservative or fuller plan before any treatment.",
         treatmentTime:
-          "About 15–20 minutes in-office. Numbing is usually optional—many patients tolerate fine needles without it.",
+          "About 15 to 20 minutes in-office. Numbing is usually optional, many patients tolerate fine needles without it.",
         downtime:
           "Minimal. Avoid rubbing the area, heavy workouts, and lying flat for a few hours. Minor pinpoint redness or swelling can fade within hours.",
         resultsTimeline:
-          "Early changes in 3–5 days; peak around 10–14 days. Maintenance is typically every 3–4 months, adjusted to how your muscles respond.",
+          "Early changes in 3 to 5 days; peak around 10 to 14 days. Maintenance is typically every 3 to 4 months, adjusted to how your muscles respond.",
       },
       beforeAfter: {
         beforeSrc: "/injectables-before.jpg",
@@ -100,7 +100,7 @@ const servicePages: Partial<Record<ServiceCategory, Partial<Record<string, Servi
       providerTrust: {
         heading: "Who performs your Botox",
         body: [
-          "Injectables are administered by licensed medical professionals trained in facial anatomy—not estheticians performing cosmetic procedures without medical oversight.",
+          "Injectables are administered by licensed medical professionals trained in facial anatomy, not estheticians performing cosmetic procedures without medical oversight.",
           "We prioritize conservative dosing, symmetry checks at animation, and honest candidacy conversations so expectations match what neuromodulators can achieve.",
           "You receive written aftercare, access for questions if something feels unusual, and follow-up guidance for maintenance timing.",
         ],
@@ -109,17 +109,17 @@ const servicePages: Partial<Record<ServiceCategory, Partial<Record<string, Servi
         {
           question: "How long does Botox last?",
           answer:
-            "Most patients enjoy results for about 3–4 months. Metabolism, muscle strength, dose, and treatment area all influence duration—your provider will recommend a maintenance cadence at follow-up.",
+            "Most patients enjoy results for about 3 to 4 months. Metabolism, muscle strength, dose, and treatment area all influence duration, your provider will recommend a maintenance cadence at follow-up.",
         },
         {
           question: "Does Botox hurt?",
           answer:
-            "Discomfort is usually mild—brief pinches with very fine needles. Ice or topical numbing can be used if you’re sensitive; most visits are quick and well tolerated.",
+            "Discomfort is usually mild, brief pinches with very fine needles. Ice or topical numbing can be used if you’re sensitive; most visits are quick and well tolerated.",
         },
         {
           question: "When will I see results?",
           answer:
-            "You may notice softening within 3–5 days. Peak effect is commonly around 10–14 days. We can schedule a two-week check if small tweaks are appropriate.",
+            "You may notice softening within 3 to 5 days. Peak effect is commonly around 10 to 14 days. We can schedule a two-week check if small tweaks are appropriate.",
         },
         {
           question: "Is there downtime?",
@@ -129,7 +129,7 @@ const servicePages: Partial<Record<ServiceCategory, Partial<Record<string, Servi
         {
           question: "Will I look frozen?",
           answer:
-            "Not when dosing is tailored to your movement. Our approach aims for smoother lines at rest while preserving expression—tell us if you prefer ultra-subtle or a bit stronger correction.",
+            "Not when dosing is tailored to your movement. Our approach aims for smoother lines at rest while preserving expression, tell us if you prefer ultra-subtle or a bit stronger correction.",
         },
         {
           question: "Who is not a candidate?",
@@ -180,7 +180,7 @@ function buildFallbackServiceContent(
     ],
     howItWorks: [
       `${displayName} is selected when it fits your anatomy, skin or body goals, and comfort with downtime.`,
-      "Your provider explains how the technology or product works in plain language—not jargon—and what success looks like for you.",
+      "Your provider explains how the technology or product works in plain language, not jargon, and what success looks like for you.",
       "Sessions, devices, or formulas are chosen for your presentation; plans can combine in-office care with home support.",
     ],
     treatmentAreas: [
@@ -194,7 +194,7 @@ function buildFallbackServiceContent(
       consultation:
         "Medical history, photos when helpful, and an honest conversation about timing, investment, and alternatives.",
       treatmentTime:
-        "Varies by modality—your coordinator will quote length at booking after your consult.",
+        "Varies by modality, your coordinator will quote length at booking after your consult.",
       downtime:
         "Ranges from none to several days depending on intensity; written aftercare is provided.",
       resultsTimeline:
@@ -211,7 +211,7 @@ function buildFallbackServiceContent(
       {
         question: "How do I know if I’m a candidate?",
         answer:
-          "A consultation is the right start—we review health history, goals, and prior treatments before recommending a specific protocol.",
+          "A consultation is the right start, we review health history, goals, and prior treatments before recommending a specific protocol.",
       },
       {
         question: "Does it hurt?",
@@ -221,7 +221,7 @@ function buildFallbackServiceContent(
       {
         question: "When will I see results?",
         answer:
-          "Timelines depend on the modality—some changes are immediate, others build over a series. Your provider outlines milestones at consult.",
+          "Timelines depend on the modality, some changes are immediate, others build over a series. Your provider outlines milestones at consult.",
       },
       {
         question: "Is there downtime?",

@@ -1,10 +1,13 @@
-import Link from "next/link";
+"use client";
+
+import { BookConsultationButton } from "@/components/booking/book-consultation-button";
+import { ExploreServicesLink } from "@/components/booking/explore-services-link";
 import { businessLocation } from "@/lib/business-location";
 
 export function FinalCtaSection() {
   return (
     <section className="border-t border-zinc-200 bg-white" aria-labelledby="final-cta-heading">
-      <div className="mx-auto max-w-6xl px-6 py-14 text-center lg:px-12 lg:py-16">
+      <div className="mx-auto max-w-7xl px-6 py-14 text-center lg:px-12 lg:py-16">
         <div className="mx-auto max-w-xl">
           <h2
             id="final-cta-heading"
@@ -17,12 +20,8 @@ export function FinalCtaSection() {
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
-            <Link
-              href="/contact"
-              className="inline-flex rounded-[5px] bg-black px-8 py-3 text-sm font-medium tracking-wide text-white transition-colors hover:bg-zinc-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-            >
-              Book Consultation
-            </Link>
+            <BookConsultationButton />
+            <ExploreServicesLink />
             <a
               href={`tel:${businessLocation.phoneTel}`}
               aria-label={`Call us at ${businessLocation.phoneDisplay}`}

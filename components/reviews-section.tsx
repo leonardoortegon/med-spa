@@ -66,9 +66,9 @@ const reviews: Review[] = [
     name: "Jordan",
     initial: "J",
     excerpt:
-      "Laser series was explained clearly—what hurts, how many passes, sunscreen expectations—and my melasma patches...",
+      "Laser series was explained clearly, what hurts, how many passes, sunscreen expectations, and my melasma patches...",
     fullText:
-      "Laser series was explained clearly—what hurts, how many passes, sunscreen expectations—and my melasma patches finally look softened without my skin flipping out. Nurses checked in proactively.",
+      "Laser series was explained clearly, what hurts, how many passes, sunscreen expectations, and my melasma patches finally look softened without my skin flipping out. Nurses checked in proactively.",
   },
   {
     id: "4",
@@ -77,16 +77,16 @@ const reviews: Review[] = [
     excerpt:
       "Hydrafacial memberships make upkeep realistic for my commute. Glow days feel restorative without feeling salesy...",
     fullText:
-      "Hydrafacial memberships make upkeep realistic for my commute. Glow days feel restorative without feeling salesy—I always leave with a handwritten tweak list rather than vague promises.",
+      "Hydrafacial memberships make upkeep realistic for my commute. Glow days feel restorative without feeling salesy, I always leave with a handwritten tweak list rather than vague promises.",
   },
   {
     id: "5",
     name: "Alex",
     initial: "A",
     excerpt:
-      "Consultation nailed candidacy—they steered me away from filler I didn\u2019t actually need because my volume loss...",
+      "Consultation nailed candidacy, they steered me away from filler I didn\u2019t actually need because my volume loss...",
     fullText:
-      "Consultation nailed candidacy—they steered me away from filler I didn\u2019t actually need because my volume loss was muscle-related. That integrity alone earned my trust for future visits.",
+      "Consultation nailed candidacy, they steered me away from filler I didn\u2019t actually need because my volume loss was muscle-related. That integrity alone earned my trust for future visits.",
   },
   {
     id: "6",
@@ -111,9 +111,9 @@ const reviews: Review[] = [
     name: "Sam",
     initial: "S",
     excerpt:
-      "Body contouring consult included realistic timelines—no photoshopped mood boards. Tech walked me through each...",
+      "Body contouring consult included realistic timelines, no photoshopped mood boards. Tech walked me through each...",
     fullText:
-      "Body contouring consult included realistic timelines—no photoshopped mood boards. Tech walked me through each applicator change and why we paused when my skin temp rose. Professional end to end.",
+      "Body contouring consult included realistic timelines, no photoshopped mood boards. Tech walked me through each applicator change and why we paused when my skin temp rose. Professional end to end.",
   },
 ];
 

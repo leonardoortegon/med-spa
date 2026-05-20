@@ -9,21 +9,31 @@ import {
   serviceAreaCopy,
 } from "@/lib/business-location";
 
-export function LocationVisitSection() {
+type LocationVisitSectionProps = {
+  /** Omit top border when stacked below another section (e.g. contact page). */
+  embedded?: boolean;
+  /** Hide homepage CTAs that link to /contact when already on contact. */
+  showBookingCtas?: boolean;
+};
+
+export function LocationVisitSection({
+  embedded = false,
+  showBookingCtas = true,
+}: LocationVisitSectionProps = {}) {
   const jsonLd = localBusinessJsonLd();
   const mapSrc = googleMapsEmbedSrc();
   const directionsUrl = googleMapsDirectionsUrl();
 
   return (
     <section
-      className="border-t border-zinc-200 bg-white"
+      className={`bg-white ${embedded ? "" : "border-t border-zinc-200"}`}
       aria-labelledby="visit-location-heading"
     >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div className="mx-auto max-w-6xl px-6 py-14 lg:px-12 lg:py-16">
+      <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:items-start lg:gap-x-14">
           <div className="min-w-0 max-w-md">
             <header>
@@ -41,13 +51,13 @@ export function LocationVisitSection() {
 
               <p className="mt-6 leading-relaxed text-zinc-600">
                 Our clinic is rooted in Coral Springs, with appointments that suit locals and commuters
-                alike—whether your day started in Boca Raton, Fort Lauderdale, Parkland, or another part
+                alike, whether your day started in Boca Raton, Fort Lauderdale, Parkland, or another part
                 of Broward County. {serviceAreaCopy}
               </p>
             </header>
 
             <aside className="mt-8 min-w-0 lg:mt-10">
-              <h3 className="sr-only">Map — {businessLocation.practiceName}</h3>
+              <h3 className="sr-only">Map, {businessLocation.practiceName}</h3>
               <iframe
                 title={`Map showing ${businessLocation.practiceName} near ${businessLocation.addressLocality}, ${businessLocation.addressRegion}`}
                 src={mapSrc}
@@ -97,7 +107,7 @@ export function LocationVisitSection() {
                 </a>
               </p>
               <p className="mt-2 text-sm leading-relaxed text-zinc-600">
-                Call to book, reschedule, or ask which treatment fits your goals—our front desk routes
+                Call to book, reschedule, or ask which treatment fits your goals, our front desk routes
                 you to the right provider.
               </p>
             </div>
@@ -132,20 +142,22 @@ export function LocationVisitSection() {
               <p className="mt-2 text-[15px] leading-relaxed text-zinc-700">{serviceAreaCopy}</p>
             </div>
 
-            <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:flex-wrap sm:items-center">
-              <Link
-                href="/contact"
-                className="inline-flex justify-center rounded-[5px] bg-black px-8 py-3 text-sm font-medium tracking-wide text-white transition-colors hover:bg-zinc-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-              >
-                Book an appointment
-              </Link>
-              <Link
-                href="/contact"
-                className="text-center text-sm font-medium tracking-wide text-zinc-700 underline underline-offset-4 transition-colors hover:text-black sm:text-left"
-              >
-                Request a consultation
-              </Link>
-            </div>
+            {showBookingCtas ? (
+              <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:flex-wrap sm:items-center">
+                <Link
+                  href="/contact"
+                  className="inline-flex justify-center rounded-[5px] bg-black px-8 py-3 text-sm font-medium tracking-wide text-white transition-colors hover:bg-zinc-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                >
+                  Book an appointment
+                </Link>
+                <Link
+                  href="/contact"
+                  className="text-center text-sm font-medium tracking-wide text-zinc-700 underline underline-offset-4 transition-colors hover:text-black sm:text-left"
+                >
+                  Request a consultation
+                </Link>
+              </div>
+            ) : null}
           </div>
         </div>
       </div>

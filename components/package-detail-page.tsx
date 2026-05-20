@@ -1,20 +1,17 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { ServiceBookCta } from "@/components/service-book-cta";
-import { ServiceBeforeAfterSlider } from "@/components/service-before-after-slider";
+import { BookConsultationButton } from "@/components/booking/book-consultation-button";
+import { MembershipPackageImage } from "@/components/membership-package-image";
 import { businessLocation } from "@/lib/business-location";
 import {
   getPracticeCity,
-  servicePageJsonLd,
-  type ServicePageContent,
-} from "@/lib/service-pages";
+  membershipPackageImageSrc,
+  packagePageJsonLd,
+  type PackagePageContent,
+} from "@/lib/package-pages";
 
 type Props = {
-  content: ServicePageContent;
-  category: string;
-  service: string;
-  categoryTitle: string;
-  categoryHref: string;
+  content: PackagePageContent;
   canonicalPath: string;
 };
 
@@ -24,16 +21,9 @@ function SectionEyebrow({ children }: { children: ReactNode }) {
   );
 }
 
-export function ServiceDetailPage({
-  content,
-  category,
-  service,
-  categoryTitle,
-  categoryHref,
-  canonicalPath,
-}: Props) {
+export function PackageDetailPage({ content, canonicalPath }: Props) {
   const city = getPracticeCity();
-  const jsonLdBlocks = servicePageJsonLd(content, categoryTitle, canonicalPath);
+  const jsonLdBlocks = packagePageJsonLd(content, canonicalPath);
 
   return (
     <>
@@ -45,60 +35,59 @@ export function ServiceDetailPage({
         />
       ))}
 
-      {/* 1. Hero */}
-      <section className="bg-white" aria-labelledby="service-hero-heading">
-        <div className="mx-auto max-w-6xl px-6 py-14 lg:px-12 lg:py-20">
+      <section className="bg-white" aria-labelledby="package-hero-heading">
+        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-20">
           <nav className="text-xs font-medium text-zinc-500" aria-label="Breadcrumb">
             <ol className="flex flex-wrap items-center gap-x-2 gap-y-1">
               <li>
-                <Link href="/services" className="transition-colors hover:text-black">
-                  Services
+                <Link href="/packages" className="transition-colors hover:text-black">
+                  Packages
                 </Link>
               </li>
               <li aria-hidden className="text-zinc-300">
                 /
               </li>
-              <li>
-                <Link href={categoryHref} className="transition-colors hover:text-black">
-                  {categoryTitle}
-                </Link>
-              </li>
-              <li aria-hidden className="text-zinc-300">
-                /
-              </li>
-              <li className="text-zinc-800">{content.displayName}</li>
+              <li className="text-zinc-800">{content.title}</li>
             </ol>
           </nav>
 
-          <div className="mt-8 max-w-3xl">
-            <SectionEyebrow>{categoryTitle}</SectionEyebrow>
-            <h1
-              id="service-hero-heading"
-              className="mt-4 font-display text-[2rem] font-semibold leading-tight tracking-tight text-black sm:text-4xl lg:text-[2.75rem] lg:leading-[1.12]"
-            >
-              {content.displayName} in {city}
-            </h1>
-            <p className="mt-6 text-[15px] leading-relaxed text-zinc-600 lg:text-base">
-              {content.heroDescription}
-            </p>
-            <div className="mt-10">
-              <ServiceBookCta category={category} service={service} />
+          <div className="mt-10 grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14 xl:gap-16">
+            <div className="min-w-0">
+              <SectionEyebrow>Packages</SectionEyebrow>
+              <h1
+                id="package-hero-heading"
+                className="mt-4 font-display text-[2rem] font-semibold leading-tight tracking-tight text-black sm:text-4xl lg:text-[2.75rem] lg:leading-[1.12]"
+              >
+                {content.title} in {city}
+              </h1>
+              <p className="mt-6 text-[15px] leading-relaxed text-zinc-600 lg:text-base">
+                {content.heroDescription}
+              </p>
+              <div className="mt-10">
+                <BookConsultationButton openOptions={{ goal: "new", consultationId: "new-patient" }} />
+              </div>
+            </div>
+            <div className="w-full min-w-0 bg-zinc-100">
+              <MembershipPackageImage
+                src={membershipPackageImageSrc(content.imageSrc)}
+                alt={`${content.title} imagery`}
+                priority
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. What it treats */}
-      <section className="bg-white" aria-labelledby="what-it-treats-heading">
-        <div className="mx-auto max-w-6xl px-6 py-14 lg:px-12 lg:py-16">
+      <section className="bg-white" aria-labelledby="package-included-heading">
+        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
           <h2
-            id="what-it-treats-heading"
+            id="package-included-heading"
             className="font-display text-2xl font-semibold text-black lg:text-[1.75rem]"
           >
-            What it treats
+            What&apos;s included
           </h2>
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-            {content.whatItTreats.map((item) => (
+            {content.whatsIncluded.map((item) => (
               <li
                 key={item}
                 className="border border-zinc-200 px-5 py-4 text-[15px] leading-relaxed text-zinc-700"
@@ -110,11 +99,10 @@ export function ServiceDetailPage({
         </div>
       </section>
 
-      {/* 3. How it works */}
-      <section className="bg-white" aria-labelledby="how-it-works-heading">
-        <div className="mx-auto max-w-6xl px-6 py-14 lg:px-12 lg:py-16">
+      <section className="bg-white" aria-labelledby="package-how-heading">
+        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
           <h2
-            id="how-it-works-heading"
+            id="package-how-heading"
             className="font-display text-2xl font-semibold text-black lg:text-[1.75rem]"
           >
             How it works
@@ -129,33 +117,31 @@ export function ServiceDetailPage({
         </div>
       </section>
 
-      {/* 4. Treatment areas */}
-      <section className="bg-white" aria-labelledby="treatment-areas-heading">
-        <div className="mx-auto max-w-6xl px-6 py-14 lg:px-12 lg:py-16">
+      <section className="bg-white" aria-labelledby="package-ideal-heading">
+        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
           <h2
-            id="treatment-areas-heading"
+            id="package-ideal-heading"
             className="font-display text-2xl font-semibold text-black lg:text-[1.75rem]"
           >
-            Treatment areas
+            Ideal for
           </h2>
           <ul className="mt-8 flex flex-wrap gap-3">
-            {content.treatmentAreas.map((area) => (
+            {content.idealFor.map((item) => (
               <li
-                key={area}
+                key={item}
                 className="border border-zinc-200 px-4 py-2.5 text-sm font-medium text-zinc-800"
               >
-                {area}
+                {item}
               </li>
             ))}
           </ul>
         </div>
       </section>
 
-      {/* 5. What to expect */}
-      <section className="bg-white" aria-labelledby="what-to-expect-heading">
-        <div className="mx-auto max-w-6xl px-6 py-14 lg:px-12 lg:py-16">
+      <section className="bg-white" aria-labelledby="package-expect-heading">
+        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
           <h2
-            id="what-to-expect-heading"
+            id="package-expect-heading"
             className="font-display text-2xl font-semibold text-black lg:text-[1.75rem]"
           >
             What to expect
@@ -163,71 +149,48 @@ export function ServiceDetailPage({
           <dl className="mt-10 grid gap-8 sm:grid-cols-2">
             <div>
               <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
-                Consultation
+                Getting started
               </dt>
               <dd className="mt-3 text-[15px] leading-relaxed text-zinc-600">
-                {content.whatToExpect.consultation}
+                {content.whatToExpect.gettingStarted}
               </dd>
             </div>
             <div>
               <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
-                Treatment time
+                Visit rhythm
               </dt>
               <dd className="mt-3 text-[15px] leading-relaxed text-zinc-600">
-                {content.whatToExpect.treatmentTime}
+                {content.whatToExpect.visitRhythm}
               </dd>
             </div>
             <div>
               <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
-                Downtime
+                Member perks
               </dt>
               <dd className="mt-3 text-[15px] leading-relaxed text-zinc-600">
-                {content.whatToExpect.downtime}
+                {content.whatToExpect.memberPerks}
               </dd>
             </div>
             <div>
               <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
-                Results timeline
+                Planning ahead
               </dt>
               <dd className="mt-3 text-[15px] leading-relaxed text-zinc-600">
-                {content.whatToExpect.resultsTimeline}
+                {content.whatToExpect.planningAhead}
               </dd>
             </div>
           </dl>
         </div>
       </section>
 
-      {/* 6. Before & after (optional) */}
-      {content.beforeAfter ? (
-        <section className="bg-white" aria-labelledby="service-before-after-heading">
-          <div className="mx-auto max-w-6xl px-6 py-14 lg:px-12 lg:py-16">
-            <SectionEyebrow>Before &amp; after</SectionEyebrow>
-            <h2
-              id="service-before-after-heading"
-              className="mt-4 font-display text-2xl font-semibold text-black lg:text-[1.75rem]"
-            >
-              Results patients often discuss
-            </h2>
-            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-zinc-500">
-              Drag the slider to compare. Outcomes are individual, not everyone will match these
-              examples.
-            </p>
-            <div className="mt-10">
-              <ServiceBeforeAfterSlider beforeAfter={content.beforeAfter} />
-            </div>
-          </div>
-        </section>
-      ) : null}
-
-      {/* 7. Provider trust */}
       <section
         className="bg-gradient-to-b from-zinc-50/90 to-white"
-        aria-labelledby="provider-trust-heading"
+        aria-labelledby="package-trust-heading"
       >
-        <div className="mx-auto max-w-6xl px-6 py-14 lg:px-12 lg:py-16">
+        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
           <SectionEyebrow>Clinical care</SectionEyebrow>
           <h2
-            id="provider-trust-heading"
+            id="package-trust-heading"
             className="mt-4 font-display text-2xl font-semibold text-black lg:text-[1.75rem]"
           >
             {content.providerTrust.heading}
@@ -246,11 +209,10 @@ export function ServiceDetailPage({
         </div>
       </section>
 
-      {/* 8. FAQs */}
-      <section className="bg-white" aria-labelledby="service-faqs-heading">
-        <div className="mx-auto max-w-6xl px-6 py-14 lg:px-12 lg:py-16">
+      <section className="bg-white" aria-labelledby="package-faqs-heading">
+        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
           <h2
-            id="service-faqs-heading"
+            id="package-faqs-heading"
             className="font-display text-2xl font-semibold text-black lg:text-[1.75rem]"
           >
             Frequently asked questions
@@ -266,17 +228,16 @@ export function ServiceDetailPage({
         </div>
       </section>
 
-      {/* 9. Related treatments */}
-      <section className="bg-white" aria-labelledby="related-treatments-heading">
-        <div className="mx-auto max-w-6xl px-6 py-14 lg:px-12 lg:py-16">
+      <section className="bg-white" aria-labelledby="package-related-heading">
+        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
           <h2
-            id="related-treatments-heading"
+            id="package-related-heading"
             className="font-display text-2xl font-semibold text-black lg:text-[1.75rem]"
           >
-            Related treatments
+            Related packages
           </h2>
-          <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {content.relatedTreatments.map((item) => (
+          <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {content.relatedPackages.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
@@ -290,22 +251,21 @@ export function ServiceDetailPage({
         </div>
       </section>
 
-      {/* 10. Book CTA */}
-      <section className="bg-white" aria-labelledby="service-book-cta-heading">
-        <div className="mx-auto max-w-6xl px-6 py-14 text-center lg:px-12 lg:py-16">
+      <section className="bg-white" aria-labelledby="package-book-cta-heading">
+        <div className="mx-auto max-w-7xl px-6 py-14 text-center lg:px-12 lg:py-16">
           <div className="mx-auto max-w-xl">
             <h2
-              id="service-book-cta-heading"
+              id="package-book-cta-heading"
               className="font-display text-3xl font-semibold tracking-tight text-black lg:text-[2rem]"
             >
-              Ready for {content.displayName} in {city}?
+              Ready to join {content.title}?
             </h2>
             <p className="mx-auto mt-6 max-w-md leading-relaxed text-zinc-600">
-              Schedule a consultation to confirm candidacy, pricing, and timing, we&apos;ll build a plan
-              that fits your features and goals.
+              Talk with our team about enrollment, pricing, and how this package fits your goals and
+              visit schedule.
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-              <ServiceBookCta category={category} service={service} />
+              <BookConsultationButton openOptions={{ goal: "new", consultationId: "new-patient" }} />
               <a
                 href={`tel:${businessLocation.phoneTel}`}
                 aria-label={`Call us at ${businessLocation.phoneDisplay}`}
@@ -318,10 +278,10 @@ export function ServiceDetailPage({
               </a>
             </div>
             <Link
-              href={categoryHref}
+              href="/packages"
               className="mt-8 inline-block text-sm font-medium text-zinc-600 underline underline-offset-4 transition-colors hover:text-black"
             >
-              ← All {categoryTitle.toLowerCase()}
+              ← All packages
             </Link>
           </div>
         </div>

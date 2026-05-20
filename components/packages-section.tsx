@@ -48,7 +48,7 @@ export function PackagesSection() {
             Maintain results with bundled care
           </h2>
           <p className="mt-5 max-w-2xl leading-relaxed text-zinc-600">
-            Structured plans keep skin, injections, lasers, and wellness on a predictable rhythm—often
+            Structured plans keep skin, injections, lasers, and wellness on a predictable rhythm, often
             with member-only value over single visits.
           </p>
         </div>

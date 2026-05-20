@@ -1,11 +1,18 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import { AnimatedMenuButton } from "@/components/animated-menu-button";
+import { BookConsultationButton } from "@/components/booking/book-consultation-button";
+import { MobileNav } from "@/components/mobile-nav";
 import {
   ServicesMegaDropdown,
   ServicesMegaMenuProvider,
   ServicesMegaTrigger,
 } from "@/components/services-mega-menu";
+import { SiteSearchTrigger } from "@/components/site-search-modal";
+import { businessLocation } from "@/lib/business-location";
 
 const navLinkClass =
   "whitespace-nowrap text-sm font-medium tracking-wide text-zinc-700 transition-colors hover:text-black";
@@ -13,48 +20,37 @@ const navLinkClass =
 const primaryLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/before-after", label: "Before & After" },
-  { href: "/memberships", label: "Memberships" },
+  { href: "/packages", label: "Packages" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
-function SearchIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-    >
-      <circle cx="11" cy="11" r="8" />
-      <path d="m21 21-4.3-4.3" />
-    </svg>
-  );
-}
-
 export function SiteHeader() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <ServicesMegaMenuProvider>
-      <header className="sticky top-0 z-50 border-b border-zinc-200/80 bg-white">
-        <div className="flex h-16 items-center gap-4 px-6 md:gap-8 md:px-12 lg:pl-24 lg:pr-16">
-          <div className="flex min-w-0 flex-1 justify-start">
+      <header className="sticky top-0 z-[60] border-b border-zinc-200/80 bg-white">
+        <div className="relative z-[61] mx-auto flex h-16 w-full max-w-7xl items-center gap-3 bg-white px-6 md:gap-4 lg:grid lg:grid-cols-3 lg:items-center lg:gap-0 lg:px-12">
+          <div className="flex min-w-0 flex-1 justify-start lg:flex-none lg:justify-self-start">
             <Link
               href="/"
-              className="font-display text-lg font-semibold tracking-wide text-black md:text-xl"
+              className="block shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
-              Med Spa
+              <Image
+                src="/ml.jpg"
+                alt="Plantation Med Spa"
+                width={161}
+                height={60}
+                priority
+                unoptimized
+                className="h-8 w-auto max-w-[10.5rem] object-contain object-left sm:h-9 md:max-w-[12rem] md:h-10"
+              />
             </Link>
           </div>
 
           <nav
-            className="hidden shrink-0 items-center gap-6 lg:flex lg:gap-8 xl:gap-10"
+            className="hidden items-center justify-center gap-6 lg:flex lg:justify-self-center lg:gap-8 xl:gap-10"
             aria-label="Primary"
           >
             {primaryLinks.slice(0, 2).map((link) => (
@@ -70,45 +66,26 @@ export function SiteHeader() {
             ))}
           </nav>
 
-          <div className="flex min-w-0 flex-1 items-center justify-end gap-3 md:gap-4">
-            <button
-              type="button"
-              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[5px] text-zinc-700 transition-colors hover:bg-zinc-100 hover:text-black"
-              aria-label="Search"
+          <div className="flex shrink-0 items-center justify-end gap-2 md:gap-3 lg:flex-none lg:justify-self-end">
+            <a
+              href={`tel:${businessLocation.phoneTel}`}
+              className="hidden whitespace-nowrap text-sm font-medium tracking-wide text-zinc-700 transition-colors hover:text-black lg:inline"
             >
-              <SearchIcon />
-            </button>
-            <Link
-              href="/contact"
-              className="rounded-[5px] bg-black/85 px-4 py-2 text-sm font-medium tracking-wide whitespace-nowrap text-white transition-colors hover:bg-black"
-            >
-              Book Now
-            </Link>
+              {businessLocation.phoneDisplay}
+            </a>
+            <SiteSearchTrigger />
+            <BookConsultationButton variant="header" label="Book now" />
+            <AnimatedMenuButton
+              open={mobileMenuOpen}
+              controlsId="mobile-primary-nav"
+              className="ml-2"
+              onClick={() => setMobileMenuOpen((open) => !open)}
+            />
           </div>
         </div>
 
         <ServicesMegaDropdown />
-
-        <div className="border-t border-zinc-100 px-6 py-2.5 lg:hidden">
-          <nav className="-mx-1 flex gap-6 overflow-x-auto px-1" aria-label="Primary mobile">
-            {primaryLinks.slice(0, 2).map((link) => (
-              <Link key={link.href} href={link.href} className={`shrink-0 ${navLinkClass}`}>
-                {link.label}
-              </Link>
-            ))}
-            <Link href="/services" className={`shrink-0 ${navLinkClass}`}>
-              Services
-            </Link>
-            {primaryLinks.slice(2).map((link) => (
-              <Link key={link.href} href={link.href} className={`shrink-0 ${navLinkClass}`}>
-                {link.label}
-              </Link>
-            ))}
-            <Link href="/contact" className={`shrink-0 ${navLinkClass}`}>
-              Book Now
-            </Link>
-          </nav>
-        </div>
+        <MobileNav open={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
       </header>
     </ServicesMegaMenuProvider>
   );
