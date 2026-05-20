@@ -22,7 +22,7 @@ const SERVICE_CATEGORY_ORDER: ServiceCategory[] = [
  * Static `/public` JPGs — one per featured treatment.
  * Bump `SERVICES_PAGE_IMAGE_REVISION` when you replace artwork so browsers/CDNs fetch the new file.
  */
-const SERVICES_PAGE_IMAGE_REVISION = "1";
+const SERVICES_PAGE_IMAGE_REVISION = "2";
 
 function servicesPageImageSrc(basePath: string) {
   return `${basePath}?v=${SERVICES_PAGE_IMAGE_REVISION}`;
