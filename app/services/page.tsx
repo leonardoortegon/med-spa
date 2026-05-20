@@ -19,15 +19,16 @@ const SERVICE_CATEGORY_ORDER: ServiceCategory[] = [
 ];
 
 /**
- * Static `/public` JPGs — one per category (unique filenames; not reused from homepage cards).
- * Bump `CATEGORY_CARD_IMAGE_REVISION` when you replace artwork so browsers/CDNs fetch the new file.
+ * Static `/public` JPGs — one per featured treatment.
+ * Bump `SERVICES_PAGE_IMAGE_REVISION` when you replace artwork so browsers/CDNs fetch the new file.
  */
-const CATEGORY_CARD_IMAGE_REVISION = "1";
+const SERVICES_PAGE_IMAGE_REVISION = "1";
 
-function categoryCardImageSrc(basePath: string) {
-  return `${basePath}?v=${CATEGORY_CARD_IMAGE_REVISION}`;
+function servicesPageImageSrc(basePath: string) {
+  return `${basePath}?v=${SERVICES_PAGE_IMAGE_REVISION}`;
 }
 
+/** Upload one JPG per category under `public/` — see `categoryCardImages` filenames. */
 const categoryCardImages: Record<ServiceCategory, string> = {
   injectables: "/services-category-injectables.jpg",
   "skin-treatments": "/services-category-skin-treatments.jpg",
@@ -57,12 +58,48 @@ const browseByConcernLinks = [
 ] as const;
 
 const featuredServices = [
-  { label: "Botox", href: "/services/injectables/botox" },
-  { label: "Lip Filler", href: "/services/injectables/lip-filler" },
-  { label: "HydraFacial", href: "/services/skin-treatments/hydrafacial" },
-  { label: "Laser Hair Removal", href: "/services/laser-light/laser-hair-removal" },
-  { label: "Microneedling", href: "/services/skin-treatments/microneedling" },
-  { label: "Medical Weight Loss", href: "/services/wellness/medical-weight-loss" },
+  {
+    label: "Botox",
+    href: "/services/injectables/botox",
+    image: "/services-featured-botox.jpg",
+    description:
+      "Neuromodulator injections that soften expression lines—forehead, frown, and crow’s feet—while keeping movement looking natural, not frozen.",
+  },
+  {
+    label: "Lip Filler",
+    href: "/services/injectables/lip-filler",
+    image: "/services-featured-lip-filler.jpg",
+    description:
+      "Hyaluronic acid gel shaped to your goals for definition, balance, or subtle volume—planned around lip anatomy and the look you want day to day.",
+  },
+  {
+    label: "HydraFacial",
+    href: "/services/skin-treatments/hydrafacial",
+    image: "/services-featured-hydrafacial.jpg",
+    description:
+      "Medical-grade cleanse, extract, and hydrate in one visit—great before events or as steady upkeep for clarity, glow, and congested pores.",
+  },
+  {
+    label: "Laser Hair Removal",
+    href: "/services/laser-light/laser-hair-removal",
+    image: "/services-featured-laser-hair-removal.jpg",
+    description:
+      "Targeted light energy reduces actively growing hair over a series of sessions—ideal when you’re tired of shaving irritation or ingrowns.",
+  },
+  {
+    label: "Microneedling",
+    href: "/services/skin-treatments/microneedling",
+    image: "/services-featured-microneedling.jpg",
+    description:
+      "Controlled micro-injuries stimulate collagen and can improve texture, fine lines, and acne scarring with downtime that’s usually manageably mild.",
+  },
+  {
+    label: "Medical Weight Loss",
+    href: "/services/wellness/medical-weight-loss",
+    image: "/services-featured-medical-weight-loss.jpg",
+    description:
+      "Provider-guided plans that pair lifestyle coaching with medication options when appropriate—built around labs, safety checks, and sustainable pacing.",
+  },
 ] as const;
 
 export default function ServicesPage() {
@@ -111,7 +148,7 @@ export default function ServicesPage() {
               >
                 <div className="relative aspect-square w-[5.625rem] shrink-0 border-r border-zinc-200 bg-zinc-100 sm:w-28 lg:w-[7.25rem]">
                   <Image
-                    src={categoryCardImageSrc(categoryCardImages[category])}
+                    src={servicesPageImageSrc(categoryCardImages[category])}
                     alt=""
                     fill
                     className="object-cover object-center"
@@ -176,12 +213,26 @@ export default function ServicesPage() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="group flex h-full flex-col justify-between gap-10 border border-zinc-200 bg-white px-6 py-5 transition-colors hover:border-zinc-400 hover:bg-zinc-50"
+                  className="group flex h-full flex-col overflow-hidden border border-zinc-200 bg-white transition-colors hover:border-zinc-400 hover:bg-zinc-50"
                 >
-                  <span className="font-display text-lg font-semibold text-black">{item.label}</span>
-                  <span className="text-sm font-medium text-black transition-colors group-hover:text-zinc-700">
-                    View details →
-                  </span>
+                  <div className="relative aspect-[4/3] w-full shrink-0 bg-zinc-100">
+                    <Image
+                      src={servicesPageImageSrc(item.image)}
+                      alt=""
+                      fill
+                      className="object-cover object-center"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col justify-between gap-6 px-6 py-5">
+                    <div>
+                      <span className="font-display text-lg font-semibold text-black">{item.label}</span>
+                      <p className="mt-3 text-[15px] leading-relaxed text-zinc-600">{item.description}</p>
+                    </div>
+                    <span className="text-sm font-medium text-black transition-colors group-hover:text-zinc-700">
+                      View details →
+                    </span>
+                  </div>
                 </Link>
               </li>
             ))}
