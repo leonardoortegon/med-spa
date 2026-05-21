@@ -83,9 +83,8 @@ export default function Home() {
             />
           </picture>
           
-          {/* Subtle elegant dark gradient overlay for text readability */}
-          <div className="absolute inset-0 bg-black/15 z-0" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/30 z-0" />
+          {/* Subtle elegant dark gradient overlay for text readability at the bottom */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent z-0" />
 
           <div className="pointer-events-none absolute inset-0 z-10 flex flex-col items-center justify-end px-6 pb-12 lg:pb-28">
             <div className="mx-auto w-full max-w-2xl text-center flex flex-col items-center gap-6">
