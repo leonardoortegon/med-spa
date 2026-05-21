@@ -7,7 +7,7 @@ export function HomeHeroCta() {
   const { openBooking } = useBooking();
 
   return (
-    <div className="pointer-events-auto flex flex-col gap-3 w-full max-w-[340px] lg:max-w-[360px] mx-auto mt-2">
+    <div className="pointer-events-auto flex flex-col gap-3 w-full max-w-[340px] lg:max-w-[360px] mx-auto lg:mx-0 mt-2">
       <button
         type="button"
         onClick={() => openBooking()}
