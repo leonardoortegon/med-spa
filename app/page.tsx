@@ -72,6 +72,7 @@ export default function Home() {
       <section className="relative w-full" aria-label="Hero">
         <div className="relative h-[100dvh] min-h-[600px] w-full overflow-hidden">
           <picture className="pointer-events-none absolute inset-0 block">
+            <source media="(min-width: 1920px)" srcSet="/hero-large.jpg" />
             <source media="(min-width: 1024px)" srcSet="/hero.jpg" />
             <img
               src="/hero-mobile.jpg"
