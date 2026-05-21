@@ -11,7 +11,7 @@ export function HomeHeroCta() {
       <button
         type="button"
         onClick={() => openBooking()}
-        className="bg-[#E5D8CD] hover:bg-[#DBCFBF] text-[#2d241e] font-sans text-xs font-semibold uppercase tracking-[0.22em] py-4 px-6 rounded-none transition-colors duration-200 w-full text-center shadow-sm cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E5D8CD]"
+        className="bg-black hover:bg-zinc-800 text-white font-sans text-xs font-semibold uppercase tracking-[0.22em] py-4 px-6 rounded-none transition-colors duration-200 w-full text-center shadow-sm cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
       >
         Book Your Consultation
       </button>
