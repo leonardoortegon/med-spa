@@ -93,7 +93,7 @@ export default function Home() {
                 <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-white/95 lg:text-zinc-800 lg:text-xs">
                   Refine. Restore. Reveal.
                 </p>
-                <h1 className="font-display text-4xl lg:text-6xl font-normal leading-[1.15] tracking-widest text-white lg:text-black uppercase">
+                <h1 className="font-display text-4xl lg:text-5xl font-normal leading-[1.15] tracking-widest text-white lg:text-black uppercase">
                   Beauty That
                   <br />
                   Feels Like You
