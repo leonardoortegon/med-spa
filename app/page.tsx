@@ -87,7 +87,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/15 z-0" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/30 z-0" />
 
-          <div className="pointer-events-none absolute inset-0 z-10 flex flex-col items-center justify-end px-6 pb-24 lg:pb-28">
+          <div className="pointer-events-none absolute inset-0 z-10 flex flex-col items-center justify-end px-6 pb-12 lg:pb-28">
             <div className="mx-auto w-full max-w-2xl text-center flex flex-col items-center gap-6">
               <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-white/95 lg:text-xs">
                 Refine. Restore. Reveal.
