@@ -35,22 +35,19 @@ export function SiteHeader() {
           "z-[60] transition-colors duration-200",
           mobileMenuOpen
             ? "fixed inset-x-0 top-0 bg-white border-b border-zinc-200/80"
-            : "absolute inset-x-0 top-0 bg-transparent border-b border-transparent lg:sticky lg:bg-white lg:border-zinc-200/80"
+            : "absolute inset-x-0 top-0 bg-transparent border-b border-transparent"
         )}
       >
         <div
           className={cn(
             "relative z-[61] mx-auto flex h-16 w-full max-w-7xl items-center gap-3 px-6 md:gap-4 lg:grid lg:grid-cols-3 lg:items-center lg:gap-0 lg:px-12 transition-colors duration-200",
-            mobileMenuOpen ? "bg-white" : "bg-transparent lg:bg-white"
+            mobileMenuOpen ? "bg-white" : "bg-transparent"
           )}
         >
           <div className="flex min-w-0 flex-1 justify-start lg:flex-none lg:justify-self-start">
             <Link
               href="/"
-              className={cn(
-                "font-display text-2xl font-medium tracking-wider focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black lg:text-3xl transition-colors duration-200",
-                mobileMenuOpen ? "text-black" : "text-white lg:text-black"
-              )}
+              className="font-display text-2xl font-medium tracking-wider focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black lg:text-3xl transition-colors duration-200 text-black"
             >
               Plantation
             </Link>
@@ -84,7 +81,7 @@ export function SiteHeader() {
               className={
                 mobileMenuOpen
                   ? ""
-                  : "text-white hover:text-white/80 hover:bg-white/10 lg:text-zinc-500 lg:hover:text-zinc-800 lg:hover:bg-zinc-100"
+                  : "text-zinc-700 hover:text-black hover:bg-black/5"
               }
             />
             <BookConsultationButton
@@ -97,7 +94,7 @@ export function SiteHeader() {
               controlsId="mobile-primary-nav"
               className={cn(
                 "ml-2 transition-colors duration-200",
-                mobileMenuOpen ? "text-black" : "text-white lg:text-black"
+                "text-black"
               )}
               onClick={() => setMobileMenuOpen((open) => !open)}
             />
