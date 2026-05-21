@@ -104,7 +104,7 @@ export default function Home() {
             </div>
 
             {/* Scroll Down Chevron */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 opacity-80 animate-bounce">
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-1.5 opacity-80 animate-bounce">
               <svg
                 className="w-6 h-6 text-white"
                 fill="none"
