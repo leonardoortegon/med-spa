@@ -17,7 +17,7 @@ export function HomeHeroCta() {
       </button>
       <Link
         href="/services"
-        className="border border-white/60 hover:border-white text-white font-sans text-xs font-semibold uppercase tracking-[0.22em] py-4 px-6 rounded-none transition-colors duration-200 w-full text-center cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+        className="border border-white/60 lg:border-black/40 hover:border-white lg:hover:border-black text-white lg:text-black font-sans text-xs font-semibold uppercase tracking-[0.22em] py-4 px-6 rounded-none transition-colors duration-200 w-full text-center cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white lg:focus-visible:outline-black"
       >
         Explore Treatments
       </Link>

@@ -83,20 +83,20 @@ export default function Home() {
           </picture>
           
           {/* Subtle elegant dark gradient overlay for text readability at the bottom */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent z-0" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent z-0 lg:hidden" />
 
           <div className="pointer-events-none absolute inset-0 z-10 flex flex-col justify-end pb-12 lg:pb-28">
             <div className="mx-auto w-full max-w-7xl px-6 lg:px-12">
               <div className="mx-auto lg:mx-0 w-full max-w-2xl text-center lg:text-left flex flex-col items-center lg:items-start gap-6">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-white/95 lg:text-xs">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-white/95 lg:text-zinc-800 lg:text-xs">
                   Refine. Restore. Reveal.
                 </p>
-                <h1 className="font-display text-4xl lg:text-6xl font-normal leading-[1.15] tracking-widest text-white uppercase">
+                <h1 className="font-display text-4xl lg:text-6xl font-normal leading-[1.15] tracking-widest text-white lg:text-black uppercase">
                   Beauty That
                   <br />
                   Feels Like You
                 </h1>
-                <p className="max-w-[270px] lg:max-w-[320px] text-[14px] lg:text-base font-light tracking-wide text-white/85 leading-relaxed">
+                <p className="max-w-[270px] lg:max-w-[320px] text-[14px] lg:text-base font-light tracking-wide text-white/85 lg:text-zinc-600 leading-relaxed">
                   Advanced aesthetic treatments designed to enhance your natural radiance.
                 </p>
                 <HomeHeroCta />
@@ -106,7 +106,7 @@ export default function Home() {
             {/* Scroll Down Chevron */}
             <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-1.5 opacity-80 animate-bounce">
               <svg
-                className="w-6 h-6 text-white"
+                className="w-6 h-6 text-black"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="1.5"
