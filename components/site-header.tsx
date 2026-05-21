@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { cn } from "@/lib/utils";
 import { AnimatedMenuButton } from "@/components/animated-menu-button";
 import { BookConsultationButton } from "@/components/booking/book-consultation-button";
 import { MobileNav } from "@/components/mobile-nav";
@@ -30,22 +30,29 @@ export function SiteHeader() {
 
   return (
     <ServicesMegaMenuProvider>
-      <header className="sticky top-0 z-[60] border-b border-zinc-200/80 bg-white">
-        <div className="relative z-[61] mx-auto flex h-16 w-full max-w-7xl items-center gap-3 bg-white px-6 md:gap-4 lg:grid lg:grid-cols-3 lg:items-center lg:gap-0 lg:px-12">
+      <header
+        className={cn(
+          "z-[60] transition-colors duration-200",
+          mobileMenuOpen
+            ? "fixed inset-x-0 top-0 bg-white border-b border-zinc-200/80"
+            : "absolute inset-x-0 top-0 bg-transparent border-b border-transparent lg:sticky lg:bg-white lg:border-zinc-200/80"
+        )}
+      >
+        <div
+          className={cn(
+            "relative z-[61] mx-auto flex h-16 w-full max-w-7xl items-center gap-3 px-6 md:gap-4 lg:grid lg:grid-cols-3 lg:items-center lg:gap-0 lg:px-12 transition-colors duration-200",
+            mobileMenuOpen ? "bg-white" : "bg-transparent lg:bg-white"
+          )}
+        >
           <div className="flex min-w-0 flex-1 justify-start lg:flex-none lg:justify-self-start">
             <Link
               href="/"
-              className="block shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              className={cn(
+                "font-display text-2xl font-medium tracking-wider focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black lg:text-3xl transition-colors duration-200",
+                mobileMenuOpen ? "text-black" : "text-white lg:text-black"
+              )}
             >
-              <Image
-                src="/ml.jpg"
-                alt="Plantation Med Spa"
-                width={161}
-                height={60}
-                priority
-                unoptimized
-                className="h-8 w-auto max-w-[10.5rem] object-contain object-left sm:h-9 md:max-w-[12rem] md:h-10"
-              />
+              Plantation
             </Link>
           </div>
 
@@ -73,12 +80,25 @@ export function SiteHeader() {
             >
               {businessLocation.phoneDisplay}
             </a>
-            <SiteSearchTrigger />
-            <BookConsultationButton variant="header" label="Book now" />
+            <SiteSearchTrigger
+              className={
+                mobileMenuOpen
+                  ? ""
+                  : "text-white hover:text-white/80 hover:bg-white/10 lg:text-zinc-500 lg:hover:text-zinc-800 lg:hover:bg-zinc-100"
+              }
+            />
+            <BookConsultationButton
+              variant="header"
+              label="Book now"
+              className="hidden lg:inline-flex"
+            />
             <AnimatedMenuButton
               open={mobileMenuOpen}
               controlsId="mobile-primary-nav"
-              className="ml-2"
+              className={cn(
+                "ml-2 transition-colors duration-200",
+                mobileMenuOpen ? "text-black" : "text-white lg:text-black"
+              )}
               onClick={() => setMobileMenuOpen((open) => !open)}
             />
           </div>

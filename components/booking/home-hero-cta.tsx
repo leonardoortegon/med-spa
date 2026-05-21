@@ -1,13 +1,26 @@
 "use client";
 
-import { BookConsultationButton } from "@/components/booking/book-consultation-button";
-import { ExploreServicesLink } from "@/components/booking/explore-services-link";
+import Link from "next/link";
+import { useBooking } from "@/components/booking/booking-context";
 
 export function HomeHeroCta() {
+  const { openBooking } = useBooking();
+
   return (
-    <div className="pointer-events-auto flex flex-row flex-wrap items-center justify-center gap-3 lg:justify-start">
-      <BookConsultationButton label="Book now" className="bg-black/85 hover:bg-black" />
-      <ExploreServicesLink label="Services" className="bg-white/90 hover:bg-white" />
+    <div className="pointer-events-auto flex flex-col gap-3 w-full max-w-[340px] lg:max-w-[360px] mx-auto mt-2">
+      <button
+        type="button"
+        onClick={() => openBooking()}
+        className="bg-[#E5D8CD] hover:bg-[#DBCFBF] text-[#2d241e] font-sans text-xs font-semibold uppercase tracking-[0.22em] py-4 px-6 rounded-none transition-colors duration-200 w-full text-center shadow-sm cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E5D8CD]"
+      >
+        Book Your Consultation
+      </button>
+      <Link
+        href="/services"
+        className="border border-white/60 hover:border-white text-white font-sans text-xs font-semibold uppercase tracking-[0.22em] py-4 px-6 rounded-none transition-colors duration-200 w-full text-center cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+      >
+        Explore Treatments
+      </Link>
     </div>
   );
 }

@@ -70,27 +70,51 @@ export default function Home() {
   return (
     <>
       <section className="relative w-full" aria-label="Hero">
-        <div className="relative h-[min(70vh,900px)] min-h-[240px] w-full overflow-hidden">
+        <div className="relative h-[100dvh] min-h-[600px] w-full overflow-hidden">
           <picture className="pointer-events-none absolute inset-0 block">
             <source media="(min-width: 1920px)" srcSet="/hero-large.jpg" />
+            <source media="(min-width: 1024px)" srcSet="/hero.jpg" />
             <img
-              src="/hero.jpg"
+              src="/hero-mobile.jpg"
               alt="Med spa hero"
               className="absolute inset-0 h-full w-full object-cover object-center"
               fetchPriority="high"
               decoding="async"
             />
           </picture>
-          <div className="pointer-events-none absolute inset-0 z-10 flex items-end justify-center pb-6 lg:items-center lg:justify-start lg:pb-0">
-            <div className="mx-auto w-full max-w-7xl px-6 lg:px-12">
-              <div className="flex w-full flex-col items-center gap-5 text-center lg:items-start lg:text-left">
-                <h1 className="font-display text-3xl font-medium leading-snug tracking-wide text-black">
-                  Better Skin,
-                  <br />
-                  Better Confidence
-                </h1>
-                <HomeHeroCta />
-              </div>
+          
+          {/* Subtle elegant dark gradient overlay for text readability */}
+          <div className="absolute inset-0 bg-black/15 z-0" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/30 z-0" />
+
+          <div className="pointer-events-none absolute inset-0 z-10 flex flex-col items-center justify-end px-6 pb-24 lg:pb-28">
+            <div className="mx-auto w-full max-w-2xl text-center flex flex-col items-center gap-6">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-white/95 lg:text-xs">
+                Refine. Restore. Reveal.
+              </p>
+              <h1 className="font-display text-4xl lg:text-6xl font-normal leading-[1.15] tracking-widest text-white uppercase">
+                Beauty That
+                <br />
+                Feels Like You
+              </h1>
+              <p className="max-w-[270px] lg:max-w-[320px] text-[14px] lg:text-base font-light tracking-wide text-white/85 leading-relaxed">
+                Advanced aesthetic treatments designed to enhance your natural radiance.
+              </p>
+              <HomeHeroCta />
+            </div>
+
+            {/* Scroll Down Chevron */}
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 opacity-80 animate-bounce">
+              <svg
+                className="w-6 h-6 text-white"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
             </div>
           </div>
         </div>

@@ -182,7 +182,7 @@ export function SiteSearchModal({ open, onClose }: Props) {
   );
 }
 
-export function SiteSearchTrigger() {
+export function SiteSearchTrigger({ className }: { className?: string }) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -201,7 +201,10 @@ export function SiteSearchTrigger() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[5px] text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-800"
+        className={cn(
+          "flex h-10 w-10 shrink-0 items-center justify-center rounded-[5px] transition-colors",
+          className || "text-zinc-500 hover:bg-zinc-100 hover:text-zinc-800"
+        )}
         aria-label="Search site"
       >
         <SearchIcon />
