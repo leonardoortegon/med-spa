@@ -120,7 +120,7 @@ export default function ServicesPage() {
           </picture>
           
           <div className="pointer-events-none absolute inset-0 z-10 flex flex-col justify-start pt-28 lg:justify-center lg:pt-0">
-            <div className="mx-auto w-full max-w-7xl px-6 lg:px-12 pointer-events-auto">
+            <div className="mx-auto w-full max-w-7xl px-4 lg:px-12 pointer-events-auto">
               <div className="mx-auto lg:mx-0 w-full max-w-2xl text-left flex flex-col items-start gap-6">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-zinc-500 lg:text-xs">
                   Services
@@ -140,7 +140,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="bg-white" aria-label="Service categories">
-        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
+        <div className="mx-auto max-w-7xl px-4 py-14 lg:px-12 lg:py-16">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {SERVICE_CATEGORY_ORDER.map((category) => (
               <Link
@@ -172,7 +172,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="bg-white" aria-labelledby="browse-by-concern-heading">
-        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
+        <div className="mx-auto max-w-7xl px-4 py-14 lg:px-12 lg:py-16">
           <h2
             id="browse-by-concern-heading"
             className="font-display text-2xl font-semibold text-black lg:text-[1.75rem]"
@@ -199,7 +199,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="bg-white" aria-labelledby="services-featured-heading">
-        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
+        <div className="mx-auto max-w-7xl px-4 py-14 lg:px-12 lg:py-16">
           <h2
             id="services-featured-heading"
             className="font-display text-2xl font-semibold text-black lg:text-[1.75rem]"
@@ -243,7 +243,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="bg-white" aria-labelledby="services-consult-cta-heading">
-        <div className="mx-auto max-w-7xl px-6 py-14 text-center lg:px-12 lg:py-16">
+        <div className="mx-auto max-w-7xl px-4 py-14 text-center lg:px-12 lg:py-16">
           <div className="mx-auto max-w-xl">
             <h2
               id="services-consult-cta-heading"

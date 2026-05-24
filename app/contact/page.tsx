@@ -5,7 +5,7 @@ export default function ContactPage() {
   return (
     <>
       <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-6 py-16 lg:px-12 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4 py-16 lg:px-12 lg:py-20">
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-zinc-500">Contact</p>
           <h1 className="mt-4 font-display text-4xl font-semibold text-black lg:text-[2.75rem]">
             Book, call, or visit

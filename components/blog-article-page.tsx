@@ -22,7 +22,7 @@ export function BlogArticlePage({ post }: Props) {
   return (
     <article>
       <header className="border-b border-zinc-200 bg-white">
-        <div className="mx-auto max-w-3xl px-6 py-14 lg:px-12 lg:py-16">
+        <div className="mx-auto max-w-3xl px-4 py-14 lg:px-12 lg:py-16">
           <nav className="text-xs font-medium text-zinc-500" aria-label="Breadcrumb">
             <ol className="flex flex-wrap items-center gap-x-2 gap-y-1">
               <li>
@@ -50,7 +50,7 @@ export function BlogArticlePage({ post }: Props) {
       </header>
 
       <div className="bg-white">
-        <div className="mx-auto max-w-3xl px-6 py-12 lg:px-12 lg:py-14">
+        <div className="mx-auto max-w-3xl px-4 py-12 lg:px-12 lg:py-14">
           <div className="space-y-10">
             {post.sections.map((section, index) => (
               <section key={index}>
@@ -81,7 +81,7 @@ export function BlogArticlePage({ post }: Props) {
 
       {related.length > 0 ? (
         <section className="border-t border-zinc-200 bg-zinc-50/80" aria-labelledby="related-posts-heading">
-          <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
+          <div className="mx-auto max-w-7xl px-4 py-14 lg:px-12 lg:py-16">
             <h2 id="related-posts-heading" className="font-display text-2xl font-semibold text-black">
               Related reading
             </h2>

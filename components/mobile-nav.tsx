@@ -93,7 +93,7 @@ export function MobileNav({ open, onClose }: Props) {
         aria-label="Mobile primary"
       >
         <div className="flex-1 overflow-y-auto">
-          <div className="mx-auto max-w-7xl px-6 pb-10 pt-4">
+          <div className="mx-auto max-w-7xl px-4 pb-10 pt-4">
           {topLinks.map((link) => (
             <Link key={link.href} href={link.href} className={topLinkClass} onClick={closeAndNavigate}>
               {link.label}

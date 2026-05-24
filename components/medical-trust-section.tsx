@@ -79,7 +79,7 @@ export function MedicalTrustSection() {
       className="bg-white"
       aria-labelledby="clinical-care-heading"
     >
-      <div className="mx-auto max-w-7xl px-6 py-16 lg:px-12 lg:py-24">
+      <div className="mx-auto max-w-7xl px-4 py-16 lg:px-12 lg:py-24">
         <div className="relative mt-px lg:grid lg:grid-cols-2 lg:gap-0 lg:divide-x lg:divide-zinc-200/90">
           <div className="relative pb-px lg:border-0 lg:pb-0 lg:pr-10 xl:pr-16">
             <div className="absolute -bottom-px left-0 right-0 h-px bg-zinc-200/90 lg:hidden" aria-hidden />

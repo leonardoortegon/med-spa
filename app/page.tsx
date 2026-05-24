@@ -88,7 +88,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent z-0 lg:hidden" />
 
           <div className="pointer-events-none absolute inset-0 z-10 flex flex-col justify-end pb-12 lg:justify-center lg:pb-0">
-            <div className="mx-auto w-full max-w-7xl px-6 lg:px-12 pointer-events-auto">
+            <div className="mx-auto w-full max-w-7xl px-4 lg:px-12 pointer-events-auto">
               <div className="mx-auto lg:mx-0 w-full max-w-2xl text-center lg:text-left flex flex-col items-center lg:items-start gap-6">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-white/95 lg:text-zinc-800 lg:text-xs">
                   Refine. Restore. Reveal.
@@ -112,7 +112,7 @@ export default function Home() {
         className="bg-white"
         aria-label="Why patients choose us"
       >
-        <div className="mx-auto max-w-7xl px-6 py-10 md:py-14 lg:px-12">
+        <div className="mx-auto max-w-7xl px-4 py-10 md:py-14 lg:px-12">
           <div className="trust-marquee-mask" role="presentation">
             <div className="trust-marquee-track">
               <ul className="trust-marquee-strip flex shrink-0 items-center gap-x-10 md:gap-x-14">
@@ -147,7 +147,7 @@ export default function Home() {
         className="bg-white"
         aria-labelledby="services-heading"
       >
-        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
+        <div className="mx-auto max-w-7xl px-4 py-14 lg:px-12 lg:py-16">
           <div className="max-w-3xl mb-12">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-zinc-500">
               Treatments by category
@@ -196,7 +196,7 @@ export default function Home() {
         className="bg-white"
         aria-label="Find the right treatment"
       >
-        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
+        <div className="mx-auto max-w-7xl px-4 py-14 lg:px-12 lg:py-16">
           <div className="max-w-3xl text-left">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-zinc-500">
               Find the right treatment

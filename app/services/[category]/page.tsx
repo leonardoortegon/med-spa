@@ -38,7 +38,7 @@ export default async function ServiceCategoryPage({ params }: Props) {
   const title = categoryTitles[category];
 
   return (
-    <div className="mx-auto max-w-4xl px-6 py-16 lg:px-12">
+    <div className="mx-auto max-w-4xl px-4 py-16 lg:px-12">
       <p className="text-xs font-semibold uppercase tracking-[0.28em] text-zinc-500">
         Services
       </p>

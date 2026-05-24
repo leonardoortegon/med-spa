@@ -39,7 +39,7 @@ const packages: PackageOffering[] = [
 export function PackagesSection() {
   return (
     <section className="bg-white" aria-labelledby="packages-heading">
-      <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
+      <div className="mx-auto max-w-7xl px-4 py-14 lg:px-12 lg:py-16">
         <div className="max-w-3xl">
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-zinc-500">
             Packages &amp; memberships

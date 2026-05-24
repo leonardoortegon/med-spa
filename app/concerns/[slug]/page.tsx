@@ -27,7 +27,7 @@ export default async function ConcernTreatmentPage({ params }: Props) {
   if (!concern) notFound();
 
   return (
-    <div className="mx-auto max-w-3xl px-6 py-16 lg:px-12">
+    <div className="mx-auto max-w-3xl px-4 py-16 lg:px-12">
       <p className="text-xs font-semibold uppercase tracking-[0.28em] text-zinc-500">
         Find the right treatment
       </p>

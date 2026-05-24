@@ -22,7 +22,7 @@ export function LocationVisitSection() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
+      <div className="mx-auto max-w-7xl px-4 py-14 lg:px-12 lg:py-16">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:items-start lg:gap-x-14">
           <div className="min-w-0 max-w-md">
             <header>

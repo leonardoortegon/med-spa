@@ -27,7 +27,7 @@ export function ConsultationCtaBlock({
       className={cn(className)}
       aria-labelledby={headingId}
     >
-      <div className="mx-auto max-w-7xl px-6 py-14 text-center lg:px-12 lg:py-16">
+      <div className="mx-auto max-w-7xl px-4 py-14 text-center lg:px-12 lg:py-16">
         <div className="mx-auto max-w-xl">
           <h2
             id={headingId}

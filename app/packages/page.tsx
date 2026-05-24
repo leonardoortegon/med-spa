@@ -14,7 +14,7 @@ export default function PackagesPage() {
       {" "}
       <section className="bg-white" aria-labelledby="packages-heading">
         {" "}
-        <div className="mx-auto max-w-7xl px-6 py-16 lg:px-12 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4 py-16 lg:px-12 lg:py-20">
           {" "}
           <div className="max-w-3xl">
             {" "}
@@ -44,7 +44,7 @@ export default function PackagesPage() {
           aria-labelledby={`package-${pkg.id}-heading`}
         >
           {" "}
-          <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-20">
+          <div className="mx-auto max-w-7xl px-4 py-14 lg:px-12 lg:py-20">
             {" "}
             <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14 xl:gap-16">
               {" "}

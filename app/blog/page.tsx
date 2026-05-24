@@ -10,7 +10,7 @@ export default function BlogPage() {
   return (
     <div className="bg-white">
       <section>
-        <div className="mx-auto max-w-7xl px-6 py-16 lg:px-12 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4 py-16 lg:px-12 lg:py-20">
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-zinc-500">Blog</p>
           <h1 className="mt-4 font-display text-4xl font-semibold text-black lg:text-[2.75rem]">
             Skin, wellness, and treatment guides
@@ -37,7 +37,7 @@ export default function BlogPage() {
       </section>
 
       <section className="border-t border-zinc-200">
-        <div className="mx-auto max-w-7xl px-6 py-12 lg:px-12 lg:py-14">
+        <div className="mx-auto max-w-7xl px-4 py-12 lg:px-12 lg:py-14">
           <h2 className="text-xs font-semibold uppercase tracking-[0.28em] text-zinc-500">Latest</h2>
           <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {sorted.slice(0, 3).map((post) => (
@@ -59,7 +59,7 @@ export default function BlogPage() {
             id={`category-${cat.id}`}
             className="scroll-mt-24 border-t border-zinc-200"
           >
-            <div className="mx-auto max-w-7xl px-6 py-12 lg:px-12 lg:py-14">
+            <div className="mx-auto max-w-7xl px-4 py-12 lg:px-12 lg:py-14">
               <div className="max-w-2xl">
                 <h2 className="font-display text-2xl font-semibold text-black">{cat.label}</h2>
                 <p className="mt-2 text-[15px] leading-relaxed text-zinc-600">{cat.description}</p>
@@ -77,7 +77,7 @@ export default function BlogPage() {
       })}
 
       <section className="border-t border-zinc-200 bg-zinc-50/80">
-        <div className="mx-auto max-w-7xl px-6 py-12 lg:px-12 lg:py-14">
+        <div className="mx-auto max-w-7xl px-4 py-12 lg:px-12 lg:py-14">
           <p className="text-[15px] leading-relaxed text-zinc-600">
             Ready to talk through what you read?{" "}
             <Link

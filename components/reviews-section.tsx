@@ -224,7 +224,7 @@ export function ReviewsSection() {
 
   return (
     <section className="bg-white" aria-labelledby="reviews-heading">
-      <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
+      <div className="mx-auto max-w-7xl px-4 py-14 lg:px-12 lg:py-16">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-zinc-500">Reviews</p>

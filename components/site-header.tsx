@@ -86,7 +86,7 @@ export function SiteHeader() {
       >
         <div
           className={cn(
-            "relative z-[61] mx-auto flex h-16 w-full max-w-7xl items-center gap-3 px-6 md:gap-4 lg:grid lg:grid-cols-3 lg:items-center lg:gap-0 lg:px-12 transition-colors duration-200",
+            "relative z-[61] mx-auto flex h-16 w-full max-w-7xl items-center gap-3 px-4 md:gap-4 lg:grid lg:grid-cols-3 lg:items-center lg:gap-0 lg:px-12 transition-colors duration-200",
             mobileMenuOpen ? "bg-white" : "bg-transparent"
           )}
         >

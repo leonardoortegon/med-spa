@@ -13,7 +13,7 @@ export default function AboutPage() {
     <article className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative w-full overflow-hidden bg-white" aria-labelledby="about-hero-title">
-        <div className="mx-auto max-w-7xl px-6 pt-24 pb-16 lg:px-12 lg:pt-32">
+        <div className="mx-auto max-w-7xl px-4 pt-24 pb-16 lg:px-12 lg:pt-32">
           <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
             <div className="lg:col-span-7">
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-zinc-500">
@@ -54,7 +54,7 @@ export default function AboutPage() {
 
       {/* Philosophy Section */}
       <section className="border-t border-zinc-200 bg-zinc-50/50 py-16 lg:py-24" aria-labelledby="philosophy-title">
-        <div className="mx-auto max-w-7xl px-6 lg:px-12">
+        <div className="mx-auto max-w-7xl px-4 lg:px-12">
           <div className="mx-auto max-w-3xl text-center">
             <h2 id="philosophy-title" className="font-display text-3xl font-semibold text-black lg:text-[2rem]">
               Our Philosophy
@@ -97,7 +97,7 @@ export default function AboutPage() {
 
       {/* Values Section */}
       <section className="border-t border-zinc-200 bg-white py-16 lg:py-24" aria-labelledby="values-title">
-        <div className="mx-auto max-w-7xl px-6 lg:px-12">
+        <div className="mx-auto max-w-7xl px-4 lg:px-12">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
               <h2 id="values-title" className="font-display text-3xl font-semibold text-black">

@@ -6,7 +6,7 @@ import { ExploreServicesLink } from "@/components/booking/explore-services-link"
 export function FinalCtaSection() {
   return (
     <section className="bg-white" aria-labelledby="final-cta-heading">
-      <div className="mx-auto max-w-7xl px-6 py-14 text-center lg:px-12 lg:py-16">
+      <div className="mx-auto max-w-7xl px-4 py-14 text-center lg:px-12 lg:py-16">
         <div className="mx-auto max-w-xl">
           <h2
             id="final-cta-heading"

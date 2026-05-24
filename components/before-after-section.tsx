@@ -55,7 +55,7 @@ export function BeforeAfterSection() {
       className="bg-white"
       aria-labelledby="before-after-heading"
     >
-      <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
+      <div className="mx-auto max-w-7xl px-4 py-14 lg:px-12 lg:py-16">
         <div className="flex flex-col gap-8 lg:gap-10">
           <header className="max-w-3xl">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-zinc-500">

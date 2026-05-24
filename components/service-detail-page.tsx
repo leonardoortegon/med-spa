@@ -47,7 +47,7 @@ export function ServiceDetailPage({
 
       {/* 1. Hero */}
       <section className="bg-white" aria-labelledby="service-hero-heading">
-        <div className="mx-auto max-w-6xl px-6 py-14 lg:px-12 lg:py-20">
+        <div className="mx-auto max-w-6xl px-4 py-14 lg:px-12 lg:py-20">
           <nav className="text-xs font-medium text-zinc-500" aria-label="Breadcrumb">
             <ol className="flex flex-wrap items-center gap-x-2 gap-y-1">
               <li>
@@ -90,7 +90,7 @@ export function ServiceDetailPage({
 
       {/* 2. What it treats */}
       <section className="bg-white" aria-labelledby="what-it-treats-heading">
-        <div className="mx-auto max-w-6xl px-6 py-14 lg:px-12 lg:py-16">
+        <div className="mx-auto max-w-6xl px-4 py-14 lg:px-12 lg:py-16">
           <h2
             id="what-it-treats-heading"
             className="font-display text-2xl font-semibold text-black lg:text-[1.75rem]"
@@ -112,7 +112,7 @@ export function ServiceDetailPage({
 
       {/* 3. How it works */}
       <section className="bg-white" aria-labelledby="how-it-works-heading">
-        <div className="mx-auto max-w-6xl px-6 py-14 lg:px-12 lg:py-16">
+        <div className="mx-auto max-w-6xl px-4 py-14 lg:px-12 lg:py-16">
           <h2
             id="how-it-works-heading"
             className="font-display text-2xl font-semibold text-black lg:text-[1.75rem]"
@@ -131,7 +131,7 @@ export function ServiceDetailPage({
 
       {/* 4. Treatment areas */}
       <section className="bg-white" aria-labelledby="treatment-areas-heading">
-        <div className="mx-auto max-w-6xl px-6 py-14 lg:px-12 lg:py-16">
+        <div className="mx-auto max-w-6xl px-4 py-14 lg:px-12 lg:py-16">
           <h2
             id="treatment-areas-heading"
             className="font-display text-2xl font-semibold text-black lg:text-[1.75rem]"
@@ -153,7 +153,7 @@ export function ServiceDetailPage({
 
       {/* 5. What to expect */}
       <section className="bg-white" aria-labelledby="what-to-expect-heading">
-        <div className="mx-auto max-w-6xl px-6 py-14 lg:px-12 lg:py-16">
+        <div className="mx-auto max-w-6xl px-4 py-14 lg:px-12 lg:py-16">
           <h2
             id="what-to-expect-heading"
             className="font-display text-2xl font-semibold text-black lg:text-[1.75rem]"
@@ -200,7 +200,7 @@ export function ServiceDetailPage({
       {/* 6. Before & after (optional) */}
       {content.beforeAfter ? (
         <section className="bg-white" aria-labelledby="service-before-after-heading">
-          <div className="mx-auto max-w-6xl px-6 py-14 lg:px-12 lg:py-16">
+          <div className="mx-auto max-w-6xl px-4 py-14 lg:px-12 lg:py-16">
             <SectionEyebrow>Before &amp; after</SectionEyebrow>
             <h2
               id="service-before-after-heading"
@@ -224,7 +224,7 @@ export function ServiceDetailPage({
         className="bg-gradient-to-b from-zinc-50/90 to-white"
         aria-labelledby="provider-trust-heading"
       >
-        <div className="mx-auto max-w-6xl px-6 py-14 lg:px-12 lg:py-16">
+        <div className="mx-auto max-w-6xl px-4 py-14 lg:px-12 lg:py-16">
           <SectionEyebrow>Clinical care</SectionEyebrow>
           <h2
             id="provider-trust-heading"
@@ -248,7 +248,7 @@ export function ServiceDetailPage({
 
       {/* 8. FAQs */}
       <section className="bg-white" aria-labelledby="service-faqs-heading">
-        <div className="mx-auto max-w-6xl px-6 py-14 lg:px-12 lg:py-16">
+        <div className="mx-auto max-w-6xl px-4 py-14 lg:px-12 lg:py-16">
           <h2
             id="service-faqs-heading"
             className="font-display text-2xl font-semibold text-black lg:text-[1.75rem]"
@@ -268,7 +268,7 @@ export function ServiceDetailPage({
 
       {/* 9. Related treatments */}
       <section className="bg-white" aria-labelledby="related-treatments-heading">
-        <div className="mx-auto max-w-6xl px-6 py-14 lg:px-12 lg:py-16">
+        <div className="mx-auto max-w-6xl px-4 py-14 lg:px-12 lg:py-16">
           <h2
             id="related-treatments-heading"
             className="font-display text-2xl font-semibold text-black lg:text-[1.75rem]"
@@ -292,7 +292,7 @@ export function ServiceDetailPage({
 
       {/* 10. Book CTA */}
       <section className="bg-white" aria-labelledby="service-book-cta-heading">
-        <div className="mx-auto max-w-6xl px-6 py-14 text-center lg:px-12 lg:py-16">
+        <div className="mx-auto max-w-6xl px-4 py-14 text-center lg:px-12 lg:py-16">
           <div className="mx-auto max-w-xl">
             <h2
               id="service-book-cta-heading"

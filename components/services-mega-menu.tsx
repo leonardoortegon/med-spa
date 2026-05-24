@@ -170,7 +170,7 @@ export function ServicesMegaDropdown() {
 
   return (
     <div
-      className={`fixed left-1/2 top-16 z-40 w-full max-w-7xl px-6 lg:px-12 -translate-x-1/2 transition-opacity duration-150 ease-out ${
+      className={`fixed left-1/2 top-16 z-40 w-full max-w-7xl px-4 lg:px-12 -translate-x-1/2 transition-opacity duration-150 ease-out ${
         open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
       }`}
       onMouseEnter={openMenu}

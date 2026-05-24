@@ -36,7 +36,7 @@ export function PackageDetailPage({ content, canonicalPath }: Props) {
       ))}
 
       <section className="bg-white" aria-labelledby="package-hero-heading">
-        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4 py-14 lg:px-12 lg:py-20">
           <nav className="text-xs font-medium text-zinc-500" aria-label="Breadcrumb">
             <ol className="flex flex-wrap items-center gap-x-2 gap-y-1">
               <li>
@@ -79,7 +79,7 @@ export function PackageDetailPage({ content, canonicalPath }: Props) {
       </section>
 
       <section className="bg-white" aria-labelledby="package-included-heading">
-        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
+        <div className="mx-auto max-w-7xl px-4 py-14 lg:px-12 lg:py-16">
           <h2
             id="package-included-heading"
             className="font-display text-2xl font-semibold text-black lg:text-[1.75rem]"
@@ -100,7 +100,7 @@ export function PackageDetailPage({ content, canonicalPath }: Props) {
       </section>
 
       <section className="bg-white" aria-labelledby="package-how-heading">
-        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
+        <div className="mx-auto max-w-7xl px-4 py-14 lg:px-12 lg:py-16">
           <h2
             id="package-how-heading"
             className="font-display text-2xl font-semibold text-black lg:text-[1.75rem]"
@@ -118,7 +118,7 @@ export function PackageDetailPage({ content, canonicalPath }: Props) {
       </section>
 
       <section className="bg-white" aria-labelledby="package-ideal-heading">
-        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
+        <div className="mx-auto max-w-7xl px-4 py-14 lg:px-12 lg:py-16">
           <h2
             id="package-ideal-heading"
             className="font-display text-2xl font-semibold text-black lg:text-[1.75rem]"
@@ -139,7 +139,7 @@ export function PackageDetailPage({ content, canonicalPath }: Props) {
       </section>
 
       <section className="bg-white" aria-labelledby="package-expect-heading">
-        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
+        <div className="mx-auto max-w-7xl px-4 py-14 lg:px-12 lg:py-16">
           <h2
             id="package-expect-heading"
             className="font-display text-2xl font-semibold text-black lg:text-[1.75rem]"
@@ -187,7 +187,7 @@ export function PackageDetailPage({ content, canonicalPath }: Props) {
         className="bg-gradient-to-b from-zinc-50/90 to-white"
         aria-labelledby="package-trust-heading"
       >
-        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
+        <div className="mx-auto max-w-7xl px-4 py-14 lg:px-12 lg:py-16">
           <SectionEyebrow>Clinical care</SectionEyebrow>
           <h2
             id="package-trust-heading"
@@ -210,7 +210,7 @@ export function PackageDetailPage({ content, canonicalPath }: Props) {
       </section>
 
       <section className="bg-white" aria-labelledby="package-faqs-heading">
-        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
+        <div className="mx-auto max-w-7xl px-4 py-14 lg:px-12 lg:py-16">
           <h2
             id="package-faqs-heading"
             className="font-display text-2xl font-semibold text-black lg:text-[1.75rem]"
@@ -229,7 +229,7 @@ export function PackageDetailPage({ content, canonicalPath }: Props) {
       </section>
 
       <section className="bg-white" aria-labelledby="package-related-heading">
-        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
+        <div className="mx-auto max-w-7xl px-4 py-14 lg:px-12 lg:py-16">
           <h2
             id="package-related-heading"
             className="font-display text-2xl font-semibold text-black lg:text-[1.75rem]"
@@ -252,7 +252,7 @@ export function PackageDetailPage({ content, canonicalPath }: Props) {
       </section>
 
       <section className="bg-white" aria-labelledby="package-book-cta-heading">
-        <div className="mx-auto max-w-7xl px-6 py-14 text-center lg:px-12 lg:py-16">
+        <div className="mx-auto max-w-7xl px-4 py-14 text-center lg:px-12 lg:py-16">
           <div className="mx-auto max-w-xl">
             <h2
               id="package-book-cta-heading"
