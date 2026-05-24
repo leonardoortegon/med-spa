@@ -28,7 +28,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <LocationVisitSection embedded showBookingCtas={false} />
+      <LocationVisitSection />
     </>
   );
 }

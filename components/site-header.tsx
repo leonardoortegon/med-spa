@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { AnimatedMenuButton } from "@/components/animated-menu-button";
 import { BookConsultationButton } from "@/components/booking/book-consultation-button";
@@ -12,7 +13,6 @@ import {
   ServicesMegaTrigger,
 } from "@/components/services-mega-menu";
 import { SiteSearchTrigger } from "@/components/site-search-modal";
-import { businessLocation } from "@/lib/business-location";
 
 const navLinkClass =
   "whitespace-nowrap text-sm font-medium tracking-wide text-zinc-700 transition-colors hover:text-black";
@@ -26,16 +26,62 @@ const primaryLinks = [
 ] as const;
 
 export function SiteHeader() {
+  const pathname = usePathname();
+  const isServicesPage = pathname === "/services";
+  const isHomePage = pathname === "/";
+  const isLightPage = !isHomePage && !isServicesPage;
+  
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollDirection, setScrollDirection] = useState<"up" | "down">("up");
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const scrolled = currentScrollY > 0;
+      setIsScrolled((prev) => (prev !== scrolled ? scrolled : prev));
+
+      if (currentScrollY > lastScrollY) {
+        // Prevent hiding during elastic scroll at the top
+        if (currentScrollY > 10) {
+          setScrollDirection("down");
+        }
+      } else if (currentScrollY < lastScrollY) {
+        setScrollDirection("up");
+      }
+      lastScrollY = currentScrollY;
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    const t = setTimeout(handleScroll, 0);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      clearTimeout(t);
+    };
+  }, []);
+
+  const showMobileWhiteNav = mobileMenuOpen || (isScrolled && scrollDirection === "up") || isServicesPage || isLightPage;
 
   return (
     <ServicesMegaMenuProvider>
       <header
         className={cn(
-          "z-[60] transition-colors duration-200",
+          "z-[60] transition-all duration-300",
           mobileMenuOpen
             ? "fixed inset-x-0 top-0 bg-white border-b border-zinc-200/80"
-            : "absolute inset-x-0 top-0 bg-transparent border-b border-transparent"
+            : cn(
+                "fixed inset-x-0 top-0",
+                isScrolled && scrollDirection === "down"
+                  ? "-translate-y-full lg:transform-none"
+                  : "",
+                (isScrolled && scrollDirection === "up") || isLightPage
+                  ? "bg-white border-b border-zinc-200/80"
+                  : "bg-transparent border-b border-transparent",
+                isScrolled || isLightPage
+                  ? "lg:bg-white lg:border-zinc-200/80"
+                  : "lg:bg-transparent lg:border-transparent"
+              )
         )}
       >
         <div
@@ -47,12 +93,13 @@ export function SiteHeader() {
           <div className="flex min-w-0 flex-1 justify-start lg:flex-none lg:justify-self-start">
             <Link
               href="/"
+              onClick={() => setMobileMenuOpen(false)}
               className={cn(
-                "font-display text-2xl font-medium tracking-wider focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black lg:text-3xl transition-colors duration-200",
-                mobileMenuOpen ? "text-black" : "text-white lg:text-black"
+                "font-display text-xl font-medium tracking-wider focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black lg:text-2xl transition-colors duration-200",
+                showMobileWhiteNav ? "text-black" : "text-white lg:text-black"
               )}
             >
-              Plantation
+              Your Brand
             </Link>
           </div>
 
@@ -74,18 +121,13 @@ export function SiteHeader() {
           </nav>
 
           <div className="flex shrink-0 items-center justify-end gap-2 md:gap-3 lg:flex-none lg:justify-self-end">
-            <a
-              href={`tel:${businessLocation.phoneTel}`}
-              className="hidden whitespace-nowrap text-sm font-medium tracking-wide text-zinc-700 transition-colors hover:text-black lg:inline"
-            >
-              {businessLocation.phoneDisplay}
-            </a>
             <SiteSearchTrigger
-              className={
-                mobileMenuOpen
-                  ? ""
-                  : "text-white hover:text-white/80 hover:bg-white/10 lg:text-zinc-500 lg:hover:text-zinc-800 lg:hover:bg-zinc-100"
-              }
+              className={cn(
+                "transition-colors duration-200",
+                showMobileWhiteNav
+                  ? "text-black lg:text-zinc-500"
+                  : "text-white lg:text-zinc-500"
+              )}
             />
             <BookConsultationButton
               variant="header"
@@ -97,7 +139,7 @@ export function SiteHeader() {
               controlsId="mobile-primary-nav"
               className={cn(
                 "ml-2 transition-colors duration-200",
-                mobileMenuOpen ? "text-black" : "text-white lg:text-black"
+                showMobileWhiteNav ? "text-black" : "text-white lg:text-black"
               )}
               onClick={() => setMobileMenuOpen((open) => !open)}
             />

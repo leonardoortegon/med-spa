@@ -105,32 +105,34 @@ const featuredServices = [
 export default function ServicesPage() {
   return (
     <>
-      <section aria-label="Services hero">
-        <div className="bg-white px-6 py-16 lg:px-12 lg:py-20">
-          <div className="mx-auto max-w-6xl">
-            <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14 xl:gap-16">
-              <div className="min-w-0 text-left">
-                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-zinc-500">
+      <section className="relative w-full" aria-label="Services hero">
+        <div className="relative h-[100dvh] min-h-[600px] w-full overflow-hidden">
+          <picture className="pointer-events-none absolute inset-0 block">
+            <source media="(min-width: 2300px)" srcSet="/services-hero-large.jpg" />
+            <source media="(min-width: 1024px)" srcSet="/services-hero-medium.jpg" />
+            <img
+              src="/services-hero-mobile.jpg"
+              alt="Services hero"
+              className="absolute inset-0 h-full w-full object-cover object-bottom"
+              fetchPriority="high"
+              decoding="async"
+            />
+          </picture>
+          
+          <div className="pointer-events-none absolute inset-0 z-10 flex flex-col justify-start pt-28 lg:justify-center lg:pt-0">
+            <div className="mx-auto w-full max-w-7xl px-6 lg:px-12 pointer-events-auto">
+              <div className="mx-auto lg:mx-0 w-full max-w-2xl text-left flex flex-col items-start gap-6">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-zinc-500 lg:text-xs">
                   Services
                 </p>
-                <h1 className="mt-4 max-w-xl font-display text-[2rem] font-semibold leading-tight tracking-tight text-black sm:text-4xl lg:max-w-none lg:text-[2.75rem] lg:leading-[1.12]">
-                  All services designed around your goals.
+                <h1 className="font-display text-2xl sm:text-3xl lg:text-4xl font-normal leading-[1.15] tracking-widest text-black uppercase">
+                  Services designed
+                  <br />
+                  around your goals
                 </h1>
-                <p className="mt-8 max-w-xl text-[15px] leading-relaxed text-zinc-600 lg:text-base">
-                  Choose a clinical category, drill into treatments, or reverse-engineer options from how
-                  you want your skin or profile to evolve, matching concerns to modalities is central to
-                  every plan we sketch.
+                <p className="max-w-md text-sm lg:text-base font-light tracking-wide text-zinc-600 leading-relaxed">
+                  Choose a category, dive into treatments, or choose how you want your skin or profile to evolve.
                 </p>
-              </div>
-              <div className="relative aspect-square w-full overflow-hidden bg-zinc-100">
-                <Image
-                  src="/services.jpg"
-                  alt="Med spa services and consultation environment."
-                  fill
-                  className="object-cover object-center"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  priority
-                />
               </div>
             </div>
           </div>
@@ -138,7 +140,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="bg-white" aria-label="Service categories">
-        <div className="mx-auto max-w-6xl px-6 py-14 lg:px-12 lg:py-16">
+        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {SERVICE_CATEGORY_ORDER.map((category) => (
               <Link
@@ -170,7 +172,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="bg-white" aria-labelledby="browse-by-concern-heading">
-        <div className="mx-auto max-w-6xl px-6 py-14 lg:px-12 lg:py-16">
+        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
           <h2
             id="browse-by-concern-heading"
             className="font-display text-2xl font-semibold text-black lg:text-[1.75rem]"
@@ -197,7 +199,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="bg-white" aria-labelledby="services-featured-heading">
-        <div className="mx-auto max-w-6xl px-6 py-14 lg:px-12 lg:py-16">
+        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
           <h2
             id="services-featured-heading"
             className="font-display text-2xl font-semibold text-black lg:text-[1.75rem]"
@@ -213,7 +215,7 @@ export default function ServicesPage() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="group flex h-full flex-col overflow-hidden border border-zinc-200 bg-white transition-colors hover:border-zinc-400 hover:bg-zinc-50"
+                  className="group flex h-full flex-col bg-white"
                 >
                   <div className="relative aspect-[4/3] w-full shrink-0 bg-zinc-100">
                     <Image
@@ -224,7 +226,7 @@ export default function ServicesPage() {
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                   </div>
-                  <div className="flex flex-1 flex-col justify-between gap-6 px-6 py-5">
+                  <div className="flex flex-1 flex-col justify-between gap-6 pt-5">
                     <div>
                       <span className="font-display text-lg font-semibold text-black">{item.label}</span>
                       <p className="mt-3 text-[15px] leading-relaxed text-zinc-600">{item.description}</p>
@@ -241,7 +243,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="bg-white" aria-labelledby="services-consult-cta-heading">
-        <div className="mx-auto max-w-6xl px-6 py-14 text-center lg:px-12 lg:py-16">
+        <div className="mx-auto max-w-7xl px-6 py-14 text-center lg:px-12 lg:py-16">
           <div className="mx-auto max-w-xl">
             <h2
               id="services-consult-cta-heading"

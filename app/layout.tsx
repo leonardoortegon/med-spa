@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import { BookingShell } from "@/components/booking/booking-shell";
 import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
+import { MainWrapper } from "@/components/main-wrapper";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -38,7 +40,8 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col bg-white">
         <BookingShell>
           <SiteHeader />
-          <main className="flex-1 bg-white">{children}</main>
+          <MainWrapper>{children}</MainWrapper>
+          <SiteFooter />
         </BookingShell>
       </body>
     </html>

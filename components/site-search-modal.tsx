@@ -203,7 +203,7 @@ export function SiteSearchTrigger({ className }: { className?: string }) {
         onClick={() => setOpen(true)}
         className={cn(
           "flex h-10 w-10 shrink-0 items-center justify-center rounded-[5px] transition-colors",
-          className || "text-zinc-500 hover:bg-zinc-100 hover:text-zinc-800"
+          className || "text-zinc-500"
         )}
         aria-label="Search site"
       >

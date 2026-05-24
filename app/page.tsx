@@ -87,8 +87,8 @@ export default function Home() {
           {/* Subtle elegant dark gradient overlay for text readability at the bottom */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent z-0 lg:hidden" />
 
-          <div className="pointer-events-none absolute inset-0 z-10 flex flex-col justify-end pb-12 lg:pb-28">
-            <div className="mx-auto w-full max-w-7xl px-6 lg:px-12">
+          <div className="pointer-events-none absolute inset-0 z-10 flex flex-col justify-end pb-12 lg:justify-center lg:pb-0">
+            <div className="mx-auto w-full max-w-7xl px-6 lg:px-12 pointer-events-auto">
               <div className="mx-auto lg:mx-0 w-full max-w-2xl text-center lg:text-left flex flex-col items-center lg:items-start gap-6">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-white/95 lg:text-zinc-800 lg:text-xs">
                   Refine. Restore. Reveal.
@@ -109,7 +109,7 @@ export default function Home() {
       </section>
 
       <section
-        className="border-t border-zinc-200 bg-white"
+        className="bg-white"
         aria-label="Why patients choose us"
       >
         <div className="mx-auto max-w-7xl px-6 py-10 md:py-14 lg:px-12">
@@ -144,15 +144,23 @@ export default function Home() {
       </section>
 
       <section
-        className="border-t border-zinc-200 bg-white"
-        aria-label="Treatments by category"
+        className="bg-white"
+        aria-labelledby="services-heading"
       >
         <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
+          <div className="max-w-3xl mb-12">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-zinc-500">
+              Treatments by category
+            </p>
+            <h2 id="services-heading" className="mt-4 font-display text-3xl font-semibold text-black lg:text-[2.125rem]">
+              Our Services
+            </h2>
+          </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
             {categoryCards.map((card) => (
               <article
                 key={card.href}
-                className="flex h-full flex-col border border-zinc-200 bg-white"
+                className="flex h-full flex-col bg-white"
               >
                 <Link
                   href={card.href}
@@ -168,12 +176,12 @@ export default function Home() {
                       className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                     />
                   </div>
-                  <div className="flex min-h-0 flex-1 flex-col p-6">
+                  <div className="flex min-h-0 flex-1 flex-col pt-6">
                     <h2 className="font-display text-xl font-semibold text-black">{card.title}</h2>
                     <p className="mt-2 text-[15px] leading-relaxed text-zinc-600">
                       {card.description}
                     </p>
-                    <span className="mt-auto pt-6 text-sm font-medium tracking-wide text-black underline underline-offset-4 transition-colors group-hover:text-zinc-700">
+                    <span className="mt-auto pt-6 text-sm font-medium tracking-wide text-black transition-colors group-hover:text-zinc-700">
                       View Services →
                     </span>
                   </div>
@@ -185,7 +193,7 @@ export default function Home() {
       </section>
 
       <section
-        className="border-t border-zinc-200 bg-white"
+        className="bg-white"
         aria-label="Find the right treatment"
       >
         <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
@@ -225,6 +233,7 @@ export default function Home() {
         description="Our consultation process helps identify the best treatment options for your skin, features, goals, and timeline."
         openOptions={{ goal: "help" }}
         showExplore
+        className="bg-white"
       />
 
       <MedicalTrustSection />

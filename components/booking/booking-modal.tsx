@@ -214,13 +214,19 @@ export function BookingModal() {
         className="relative flex max-h-[min(88dvh,100%)] w-full max-w-2xl flex-col overflow-hidden rounded-[5px] border border-zinc-200 bg-white shadow-[0_24px_80px_-24px_rgba(0,0,0,0.35)]"
       >
         <div className="flex items-center justify-between border-b border-zinc-100 px-5 py-4 sm:px-6">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-zinc-500">
-              {step === "goal" ? "Book consultation" : "Scheduling"}
-            </p>
-            <h2 id="booking-dialog-title" className="mt-1 font-display text-xl font-semibold text-black">
+          <div className="flex items-center gap-4">
+            <h2 id="booking-dialog-title" className="font-display text-xl font-semibold text-black">
               {step === "confirm" ? "You're booked" : step === "goal" ? "Start your visit" : "Continue booking"}
             </h2>
+            {step !== "goal" && step !== "confirm" && (
+              <button
+                type="button"
+                onClick={goBack}
+                className="flex items-center gap-1 text-sm font-medium text-zinc-500 hover:text-black transition-colors shrink-0"
+              >
+                <span>Back</span> <span>←</span>
+              </button>
+            )}
           </div>
           <button
             type="button"
@@ -234,7 +240,7 @@ export function BookingModal() {
 
         {step !== "goal" && step !== "confirm" && (
           <div className="border-b border-zinc-100 px-5 py-3 sm:px-6">
-            <ol className="flex gap-2 overflow-x-auto text-[11px] font-medium uppercase tracking-wider text-zinc-400">
+            <ol className="flex w-full justify-between gap-x-4 overflow-x-auto text-[11px] font-medium uppercase tracking-wider text-zinc-400">
               {BOOKING_PROGRESS_LABELS.map((label, i) => (
                 <li
                   key={label}
@@ -286,7 +292,10 @@ export function BookingModal() {
                     title={c.title}
                     description={c.description}
                     selected={consultationId === c.id}
-                    onClick={() => setConsultationId(c.id)}
+                    onClick={() => {
+                      setConsultationId(c.id);
+                      setStep("provider");
+                    }}
                   />
                 ))}
               </div>
@@ -366,6 +375,7 @@ export function BookingModal() {
                       } else {
                         setConsultationId(null);
                       }
+                      setStep("provider");
                     }}
                   />
                 ))}
@@ -386,6 +396,7 @@ export function BookingModal() {
                     onClick={() => {
                       setConsultationId(c.id);
                       setServiceId(null);
+                      setStep("provider");
                     }}
                   />
                 ))}
@@ -450,6 +461,7 @@ export function BookingModal() {
                           setConsultationId(null);
                         }
                       }
+                      setStep("provider");
                     }}
                   />
                 ))}
@@ -465,7 +477,10 @@ export function BookingModal() {
                   <button
                     key={p.id}
                     type="button"
-                    onClick={() => setProviderId(p.id)}
+                    onClick={() => {
+                      setProviderId(p.id);
+                      setStep("time");
+                    }}
                     className={cn(
                       "flex w-full gap-4 rounded-[5px] border p-4 text-left transition-colors",
                       providerId === p.id
@@ -518,7 +533,10 @@ export function BookingModal() {
                           <button
                             key={slot}
                             type="button"
-                            onClick={() => setTimeSlot(slot)}
+                            onClick={() => {
+                              setTimeSlot(slot);
+                              setStep("details");
+                            }}
                             className={cn(
                               "rounded-[5px] border px-3 py-2 text-sm",
                               timeSlot === slot
@@ -569,7 +587,10 @@ export function BookingModal() {
                         <button
                           key={slot}
                           type="button"
-                          onClick={() => setTimeSlot(slot)}
+                          onClick={() => {
+                            setTimeSlot(slot);
+                            setStep("details");
+                          }}
                           className={cn(
                             "rounded-[5px] border px-3 py-2 text-sm",
                             timeSlot === slot
@@ -729,49 +750,32 @@ export function BookingModal() {
           )}
         </div>
 
-        {step !== "confirm" && (
-          <div className="flex items-center justify-between gap-3 border-t border-zinc-100 px-5 py-4 sm:px-6">
-            {step !== "goal" ? (
-              <button
-                type="button"
-                onClick={goBack}
-                className="text-sm font-medium text-zinc-600 hover:text-black"
-              >
-                Back
-              </button>
-            ) : (
-              <span />
-            )}
-            {step !== "goal" && (
-              <button
-                type="button"
-                onClick={() => {
-                  if (step === "details") {
-                    if (activePolicy === "none") setStep("confirm");
-                    else setStep("policy");
-                    return;
-                  }
-                  if (step === "policy") {
-                    setStep("confirm");
-                    return;
-                  }
-                  goNext();
-                }}
-                disabled={
-                  (step === "appointment" && !canContinueAppointment) ||
-                  (step === "provider" && !providerId) ||
-                  (step === "time" && (!selectedDate || !timeSlot)) ||
-                  (step === "details" &&
-                    (!details.firstName ||
-                      !details.lastName ||
-                      !details.phone ||
-                      !details.email))
+        {(step === "details" || step === "policy") && (
+          <div className="flex items-center justify-end border-t border-zinc-100 px-5 py-4 sm:px-6">
+            <button
+              type="button"
+              onClick={() => {
+                if (step === "details") {
+                  if (activePolicy === "none") setStep("confirm");
+                  else setStep("policy");
+                  return;
                 }
-                className="rounded-[5px] bg-black px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-40"
-              >
-                {step === "policy" ? "Confirm booking" : "Continue"}
-              </button>
-            )}
+                if (step === "policy") {
+                  setStep("confirm");
+                  return;
+                }
+              }}
+              disabled={
+                step === "details" &&
+                (!details.firstName ||
+                  !details.lastName ||
+                  !details.phone ||
+                  !details.email)
+              }
+              className="rounded-[5px] bg-black px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-40"
+            >
+              {step === "policy" ? "Confirm booking" : "Continue"}
+            </button>
           </div>
         )}
 

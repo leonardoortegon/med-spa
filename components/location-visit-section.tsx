@@ -1,4 +1,3 @@
-import Link from "next/link";
 import {
   businessLocation,
   formatFullAddress,
@@ -9,24 +8,14 @@ import {
   serviceAreaCopy,
 } from "@/lib/business-location";
 
-type LocationVisitSectionProps = {
-  /** Omit top border when stacked below another section (e.g. contact page). */
-  embedded?: boolean;
-  /** Hide homepage CTAs that link to /contact when already on contact. */
-  showBookingCtas?: boolean;
-};
-
-export function LocationVisitSection({
-  embedded = false,
-  showBookingCtas = true,
-}: LocationVisitSectionProps = {}) {
+export function LocationVisitSection() {
   const jsonLd = localBusinessJsonLd();
   const mapSrc = googleMapsEmbedSrc();
   const directionsUrl = googleMapsDirectionsUrl();
 
   return (
     <section
-      className={`bg-white ${embedded ? "" : "border-t border-zinc-200"}`}
+      className="bg-white"
       aria-labelledby="visit-location-heading"
     >
       <script
@@ -141,23 +130,6 @@ export function LocationVisitSection({
               </h3>
               <p className="mt-2 text-[15px] leading-relaxed text-zinc-700">{serviceAreaCopy}</p>
             </div>
-
-            {showBookingCtas ? (
-              <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:flex-wrap sm:items-center">
-                <Link
-                  href="/contact"
-                  className="inline-flex justify-center rounded-[5px] bg-black px-8 py-3 text-sm font-medium tracking-wide text-white transition-colors hover:bg-zinc-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                >
-                  Book an appointment
-                </Link>
-                <Link
-                  href="/contact"
-                  className="text-center text-sm font-medium tracking-wide text-zinc-700 underline underline-offset-4 transition-colors hover:text-black sm:text-left"
-                >
-                  Request a consultation
-                </Link>
-              </div>
-            ) : null}
           </div>
         </div>
       </div>

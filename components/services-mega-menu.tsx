@@ -125,7 +125,7 @@ function MegaMenuPanel() {
               <Link
                 href={column.viewAll.href}
                 onClick={closeMenu}
-                className="mt-auto pt-4 text-[13px] font-normal text-black underline underline-offset-4 hover:text-zinc-700"
+                className="mt-auto pt-4 text-[13px] font-normal text-black hover:text-zinc-700"
               >
                 {column.viewAll.label}
               </Link>
@@ -170,7 +170,7 @@ export function ServicesMegaDropdown() {
 
   return (
     <div
-      className={`fixed left-1/2 top-16 z-40 w-[min(calc(100vw-2rem),72rem)] -translate-x-1/2 transition-opacity duration-150 ease-out ${
+      className={`fixed left-1/2 top-16 z-40 w-full max-w-7xl px-6 lg:px-12 -translate-x-1/2 transition-opacity duration-150 ease-out ${
         open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
       }`}
       onMouseEnter={openMenu}

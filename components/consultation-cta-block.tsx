@@ -18,13 +18,13 @@ export function ConsultationCtaBlock({
   heading,
   description,
   headingId,
-  className,
+  className = "bg-white",
   openOptions,
   showExplore = false,
 }: Props) {
   return (
     <section
-      className={cn("border-t border-zinc-200 bg-white", className)}
+      className={cn(className)}
       aria-labelledby={headingId}
     >
       <div className="mx-auto max-w-7xl px-6 py-14 text-center lg:px-12 lg:py-16">

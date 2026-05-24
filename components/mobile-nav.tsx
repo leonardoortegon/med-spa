@@ -11,10 +11,10 @@ type Props = {
 };
 
 const topLinkClass =
-  "flex w-full items-center border-b border-zinc-100 py-4 text-base font-medium tracking-wide text-zinc-800 transition-colors hover:text-black";
+  "flex w-full items-center border-b border-zinc-100 py-4 font-display text-[1.15rem] font-medium tracking-wider text-zinc-800 transition-colors hover:text-black";
 
 const categoryButtonClass =
-  "flex w-full items-center justify-between py-3.5 text-left text-sm font-semibold uppercase tracking-[0.18em] text-zinc-800";
+  "flex w-full items-center justify-between py-3.5 text-left text-[13px] font-medium uppercase tracking-[0.18em] text-zinc-800";
 
 const serviceLinkClass =
   "block py-2.5 pl-3 text-[15px] font-medium text-zinc-600 transition-colors hover:text-black";
@@ -118,10 +118,10 @@ export function MobileNav({ open, onClose }: Props) {
               <div className="pb-4 pl-1">
                 <Link
                   href="/services"
-                  className="mb-3 block text-sm font-medium text-black underline underline-offset-4"
+                  className="mb-3 flex items-center text-sm font-medium text-black transition-colors hover:text-zinc-600"
                   onClick={closeAndNavigate}
                 >
-                  View all services
+                  View all services <span aria-hidden className="ml-1">→</span>
                 </Link>
 
                 {megaMenuColumns.map((column) => {
